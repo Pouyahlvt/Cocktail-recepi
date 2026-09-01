@@ -1,1 +1,10 @@
 @import "tailwindcss";
+
+@theme {
+  --color-onyx: #131313;
+  --color-lnk-black: #011225;
+  --color-dark-amethyst: #110036;
+  --color-bright-snow: #fafafa;
+
+  --font-megrim: var(--font-megrim);
+}
