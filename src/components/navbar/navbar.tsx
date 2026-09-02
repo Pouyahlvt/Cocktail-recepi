@@ -1,12 +1,13 @@
 "use client";
 
-import { LogIn } from "lucide-react";
+import { LogIn, Martini } from "lucide-react";
 import Search_bar from "./searchbar";
 
 const Navbar = () => {
   return (
-    <div className="w-full mx-auto flex fixed top-5 h-fit ">
-      <h1 className="ml-20 text-2xl font-megrim font-bold  text-bright-snow my-auto">
+    <div className="w-full mx-auto flex fixed top-5 h-fit z-30">
+      {<Martini className="ml-5 my-auto" color="white" size={40} />}
+      <h1 className="ml-5 text-4xl font-megrim font-bold  text-bright-snow my-auto">
         {"C - Recpie"}
       </h1>
       <Search_bar />
