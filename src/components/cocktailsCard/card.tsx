@@ -52,6 +52,7 @@ const CocktailCard = ({
           src={image}
           alt={name}
           fill
+          loading="eager"
           draggable={false}
           className="object-contain p-5"
           sizes="280px"

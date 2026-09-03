@@ -31,7 +31,7 @@ const cocktails: Cocktail[] = [
     id: 2,
     name: "Martini",
     type: "Classic",
-    image: "/cocktails/martini.png",
+    image: "/cocktails/martini-cocktails.png",
     alcohol: "Vodka",
     difficulty: "Easy",
     favorites: 8700,
