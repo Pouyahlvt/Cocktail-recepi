@@ -3,7 +3,7 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { useRef, useState } from "react";
-import CocktailCard from "../cocktailsCard/card";
+import CocktailCard from "../../cocktailsCard/card";
 
 gsap.registerPlugin(useGSAP);
 

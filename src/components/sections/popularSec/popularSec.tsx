@@ -1,6 +1,6 @@
 "use client";
 
-import CocktailGallery from "../CocktailsGallery";
+import CocktailGallery from "./CocktailsGallery";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { useEffect, useRef } from "react";
