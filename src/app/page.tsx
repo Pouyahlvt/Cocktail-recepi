@@ -5,6 +5,7 @@ import Navbar from "../components/navbar/navbar";
 import PopularCocktails from "../components/sections/popularSec/popularSec";
 import Most_viewed from "../components/sections/most-viewed/most-viewed";
 import CocktailsPage from "../components/sections/all-recpie/cocktailsRecpieSec";
+import Footer from "../components/sections/footer/footer";
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
       <PopularCocktails />
       <Most_viewed />
       <CocktailsPage />
+      <Footer />
     </div>
   );
 };

@@ -3,6 +3,9 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import CocktailCard from "../../cocktailsCard/card";
+import ScrollTrigger from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 interface Cocktail {
   id: number;
@@ -58,9 +61,31 @@ export default function CocktailsPage() {
       {
         opacity: 1,
         y: 0,
-        duration: 0.5,
-        stagger: 0.05,
+        duration: 1.2,
+        stagger: 0.15,
         ease: "power2.out",
+        scrollTrigger: {
+          trigger: gridRef.current,
+          start: "top 80%",
+        },
+      },
+    );
+
+    gsap.fromTo(
+      ".text-section",
+      {
+        opacity: 0,
+        y: 25,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1.2,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: ".text-section",
+          start: "top 90%",
+        },
       },
     );
   }, [currentPage]);
@@ -70,8 +95,8 @@ export default function CocktailsPage() {
 
     setCurrentPage(page);
 
-    window.scrollTo({
-      top: 0,
+    gridRef.current?.scrollIntoView({
+      block: "start",
       behavior: "smooth",
     });
   };
@@ -79,12 +104,12 @@ export default function CocktailsPage() {
   return (
     <main className="min-h-screen bg-onyx px-10 py-20 font-megrim">
       {/* Header */}
-      <section className="mx-auto mb-16 max-w-7xl text-center">
-        <h1 className="font-megrim text-5xl text-bright-snow">
+      <section className="text-section mx-auto mb-46 max-w-7xl text-center">
+        <h1 className="font-megrim text-7xl text-bright-snow ">
           Cocktails Recipes
         </h1>
 
-        <p className="mt-4 text-base text-bright-snow/60  mb-30 font-semibold ">
+        <p className="mt-4 text-base text-bright-snow/60   font-semibold ">
           Discover All recpie
         </p>
       </section>
@@ -171,8 +196,10 @@ function Pagination({
       <button
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
-        className="flex h-10 w-10 items-center justify-center rounded-full border border-bright-stext-bright-snow/10 text-bright-snow transition hover:border-bright-stext-bright-snow/30 disabled:pointer-events-none disabled:opacity-30">
-        ←
+        className="flex h-12 w-12 items-center justify-center rounded-full bg-bright-snow/5 text-2xl hover:bg-bright-snow/50
+        text-bright-snow transition duration-300 disabled:pointer-events-none cursor-pointer hover:shadow-2xl/50 shadow-bright-snow/50  
+        disabled:opacity-30 active:scale-90">
+        ◁
       </button>
 
       {/* Numbers */}
@@ -194,10 +221,10 @@ function Pagination({
           <button
             key={pageNumber}
             onClick={() => onPageChange(pageNumber)}
-            className={`flex h-10 w-10 items-center justify-center rounded-full transition cursor-pointer ${
+            className={`flex h-10 w-8 items-center justify-center rounded-full transition cursor-pointer font-black ${
               active
-                ? "bg-bright-snow/50 text-onyx text-3xl"
-                : "text-bright-snow/60 hover:bg-bright-stext-bright-snow/10 hover:text-bright-snow"
+                ? " text-bright-snow -translate-y-3 text-3xl"
+                : "text-bright-snow/60 hover:bg-bright-stext-bright-snow/10 hover:text-bright-snow hover:text-2xl hover:-translate-y-2"
             }`}>
             {pageNumber}
           </button>
@@ -208,8 +235,10 @@ function Pagination({
       <button
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
-        className="flex h-10 w-10 items-center justify-center rounded-full border border-bright-stext-bright-snow/10 text-bright-snow transition hover:border-bright-stext-bright-snow/30 disabled:pointer-events-none disabled:opacity-30">
-        →
+        className="flex h-12 w-12 items-center justify-center rounded-full bg-bright-snow/5 text-2xl hover:bg-bright-snow/50
+        text-bright-snow transition duration-300 disabled:pointer-events-none cursor-pointer hover:shadow-2xl/50 shadow-bright-snow/50  
+        disabled:opacity-30 active:scale-90">
+        ▷
       </button>
     </div>
   );

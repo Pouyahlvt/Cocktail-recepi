@@ -1,7 +1,7 @@
 "use client";
 
 import { SearchIcon, MoveLeft } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
@@ -10,6 +10,11 @@ const Search_bar = () => {
   const [show, setShow] = useState(false);
   const [searchKey, setSearchKey] = useState("");
   const facke_Results = [
+    "Martini",
+    "GodFather",
+    "sex in the beatch",
+    "lemon dragon",
+    "angry dragon",
     "Martini",
     "GodFather",
     "sex in the beatch",
@@ -29,6 +34,19 @@ const Search_bar = () => {
     }
   };
 
+  useEffect(() => {
+    if (active) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+
+    // Cleanup function to reset when component unmounts
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [active]);
+
   useGSAP(() => {
     if (!show) return;
 
@@ -42,7 +60,7 @@ const Search_bar = () => {
 
   return (
     <div
-      className={`${active ? " w-full h-[125vh] -mt-5 pt-5  px-5 bg-onyx fixed  z-50  " : "w-[35%] ml-auto mr-5 hover:w-[38%]"} 
+      className={`${active ? " w-full h-screen -mt-5 pt-5  px-5 bg-onyx fixed  z-50  " : "w-[35%] ml-auto mr-5 hover:w-[38%]"} 
       transition-all duration-300 ease-in-out`}>
       <div className="flex">
         {active && (
@@ -78,16 +96,23 @@ const Search_bar = () => {
         </button>
       </div>
       {active && (
-        <div className="w-full pr-20 mt-5 h-20 ">
+        <div
+          className="w-full pr-20 mt-5 max-h-screen overflow-hidden overflow-y-auto pb-30"
+          style={{
+            scrollbarWidth: "thin",
+            scrollbarColor: "#fafafa #131313",
+          }}>
           <h2 className="text-xl text-bright-snow/90 font-megrim">
             Search Results :{" "}
           </h2>
           {facke_Results.map((cocktails, index) => (
             <div
               key={`search-${index}`}
-              className={`search-result w-full text-3xl ml-10 text-bright-snow my-2 py-2 font-megrim border-b-2 cursor-pointer 
-               opacity-0 -translate-y-10`}>
-              {cocktails}
+              className={`search-result flex shrink text-3xl ml-10 text-bright-snow   font-megrim border-b-2 cursor-pointer 
+               opacity-0 -translate-y-10 ${show ? "" : "hidden"}`}>
+              <span className="w-full hover:translate-x-5 transition-all duration-200 ease-in-out py-4 delay-100">
+                {cocktails}
+              </span>
             </div>
           ))}
         </div>

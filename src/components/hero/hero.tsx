@@ -29,6 +29,15 @@ const Hero = () => {
         "<=",
       )
       .to(
+        ".discover-text",
+        {
+          y: 0,
+          duration: 0.7,
+          ease: "power3.out",
+        },
+        "<=",
+      )
+      .to(
         ".martini-image",
         {
           x: 0,
@@ -42,10 +51,9 @@ const Hero = () => {
     const scrollTl = gsap.timeline({
       scrollTrigger: {
         trigger: ".hero",
-        start: "bottom 80%",
-        end: "bottom 30%",
+        start: "bottom 90%",
+        end: "bottom 10%",
         scrub: true,
-        markers: false,
       },
     });
 
@@ -60,6 +68,14 @@ const Hero = () => {
       )
       .to(
         ".sec-text",
+        {
+          y: "120%",
+          ease: "none",
+        },
+        0.05,
+      )
+      .to(
+        ".discover-text",
         {
           y: "120%",
           ease: "none",
@@ -89,6 +105,12 @@ const Hero = () => {
 
         <div className="w-full overflow-hidden">
           <p className="sec-text translate-y-full text-8xl font-bold">Recpie</p>
+        </div>
+
+        <div className="w-full overflow-hidden mt-5">
+          <p className="discover-text translate-y-full text-bright-snow/50 font-bold">
+            Dscover cocktails recpie i love {"?"}
+          </p>
         </div>
       </div>
 
