@@ -304,7 +304,7 @@ const CocktailGalleryMV = () => {
           onClick={previous}
           className="flex h-15 w-15 shrink-0 items-center justify-center rounded-full text-2xl
            text-bright-snow hover:w-20 cursor-pointer active:scale-95 transition-all duration-200
-           bg-[radial-gradient(circle_at_center,#110036_65%,#fafafa_100%)] "
+           bg-dark-amethyst border border-bright-snow/30 "
           aria-label="Previes cocktail ">
           {"◁"}
         </button>
@@ -314,7 +314,7 @@ const CocktailGalleryMV = () => {
           onClick={next}
           className="flex h-15 w-15 shrink-0 items-center justify-center rounded-full text-2xl 
            text-bright-snow hover:w-20  cursor-pointer active:scale-95 transition-all duration-200
-           bg-[radial-gradient(circle_at_center,#110036_65%,#fafafa_100%)] "
+           bg-dark-amethyst border border-bright-snow/30 "
           aria-label="Next cocktail ">
           {"▷"}
         </button>
