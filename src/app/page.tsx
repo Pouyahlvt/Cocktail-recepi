@@ -9,7 +9,7 @@ import Footer from "../components/sections/footer/footer";
 
 const Home = () => {
   return (
-    <div className="w-full h-fit">
+    <div className="w-full min-h-screen bg-onyx">
       <Hero />
       <Navbar />
       <PopularCocktails />

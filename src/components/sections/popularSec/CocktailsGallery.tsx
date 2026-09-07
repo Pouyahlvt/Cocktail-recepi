@@ -313,7 +313,7 @@ const CocktailGallery = () => {
            text-bright-snow hover:scale-105 cursor-pointer active:scale-95 transition-all duration-200
            bg-[radial-gradient(circle_at_center,#110036_60%,#fafafa_100%)] "
           aria-label="Previes cocktail ">
-          {"◁"}
+          {"◀"}
         </button>
 
         {/* Progress */}
@@ -331,7 +331,7 @@ const CocktailGallery = () => {
            text-bright-snow hover:scale-105 cursor-pointer active:scale-95 transition-all duration-200
            bg-[radial-gradient(circle_at_center,#110036_60%,#fafafa_100%)]"
           aria-label="Next cocktail ">
-          {"▷"}
+          {"▶"}
         </button>
       </div>
     </div>

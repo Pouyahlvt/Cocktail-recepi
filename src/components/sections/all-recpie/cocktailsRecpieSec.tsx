@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import CocktailCard from "../../cocktailsCard/card";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import Filtering from "../../ui/filtering";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -104,7 +105,7 @@ export default function CocktailsPage() {
   return (
     <main className="min-h-screen bg-onyx px-10 py-20 font-megrim">
       {/* Header */}
-      <section className="text-section mx-auto mb-46 max-w-7xl text-center">
+      <section className="text-section mx-auto mb-26 max-w-7xl text-center">
         <h1 className="font-megrim text-7xl text-bright-snow ">
           Cocktails Recipes
         </h1>
@@ -116,6 +117,7 @@ export default function CocktailsPage() {
 
       {/* Cocktail Grid */}
       <section className="mx-auto max-w-7xl">
+        <Filtering />
         <div ref={gridRef} className="grid grid-cols-4 gap-x-6 gap-y-10">
           {currentCocktails.map((cocktail, index) => (
             <div
@@ -199,7 +201,7 @@ function Pagination({
         className="flex h-12 w-12 items-center justify-center rounded-full bg-bright-snow/5 text-2xl hover:bg-bright-snow/50
         text-bright-snow transition duration-300 disabled:pointer-events-none cursor-pointer hover:shadow-2xl/50 shadow-bright-snow/50  
         disabled:opacity-30 active:scale-90">
-        ◁
+        ◀
       </button>
 
       {/* Numbers */}
@@ -238,7 +240,7 @@ function Pagination({
         className="flex h-12 w-12 items-center justify-center rounded-full bg-bright-snow/5 text-2xl hover:bg-bright-snow/50
         text-bright-snow transition duration-300 disabled:pointer-events-none cursor-pointer hover:shadow-2xl/50 shadow-bright-snow/50  
         disabled:opacity-30 active:scale-90">
-        ▷
+        ▶
       </button>
     </div>
   );

@@ -8,3 +8,37 @@
 
   --font-megrim: var(--font-megrim);
 }
+/* Width of the scrollbar */
+::-webkit-scrollbar {
+  width: 7px; /* For vertical scrollbar */
+  height: 10px; /* For horizontal scrollbar */
+}
+
+/* Track (background) */
+::-webkit-scrollbar-track {
+  background: #131313;
+}
+
+/* Handle (thumb) */
+::-webkit-scrollbar-thumb {
+  background: #fafafa72;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #fafafaec;
+}
+
+/* Optional: Corner between vertical and horizontal scrollbars */
+::-webkit-scrollbar-corner {
+  background: #131313;
+}
+::selection {
+  background: #fafafa;
+  color: #110036;
+}
+
+::-moz-selection {
+  background: #fafafa;
+  color: #110036;
+}
