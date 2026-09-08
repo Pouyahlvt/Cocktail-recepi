@@ -5,37 +5,34 @@ import gsap from "gsap";
 import CocktailCard from "../../cocktailsCard/card";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Filtering from "../../ui/filtering";
+import { cocktails_data } from "@/src/data/cocktailsData";
 
 gsap.registerPlugin(ScrollTrigger);
 
-interface Cocktail {
-  id: number;
-  name: string;
-  type: string;
-  image: string;
-  alcohol: string;
-  difficulty: "Easy" | "Medium" | "Hard";
-  favorites: number;
-}
+// interface Cocktail {
+//   id: number;
+//   name: string;
+//   type: string;
+//   image: string;
+//   alcohol: string;
+//   difficulty: "Easy" | "Medium" | "Hard";
+//   favorites: number;
+// }
+
+// // One fake cocktail
+// const fakeCocktail: Cocktail = {
+//   id: 1,
+//   name: "Negroni",
+//   type: "Classic",
+//   image: "/cocktails/negroni.png",
+//   alcohol: "Gin",
+//   difficulty: "Medium",
+//   favorites: 12400,
+// };
 
 const COCKTAILS_PER_PAGE = 20;
 
-// One fake cocktail
-const fakeCocktail: Cocktail = {
-  id: 1,
-  name: "Negroni",
-  type: "Classic",
-  image: "/cocktails/negroni.png",
-  alcohol: "Gin",
-  difficulty: "Medium",
-  favorites: 12400,
-};
-
-// Create 100 cocktails using the same cocktail data
-const cocktails = Array.from({ length: 100 }, (_, index) => ({
-  ...fakeCocktail,
-  id: index + 1,
-}));
+const cocktails = cocktails_data;
 
 export default function CocktailsPage() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -107,7 +104,7 @@ export default function CocktailsPage() {
       {/* Header */}
       <section className="text-section mx-auto mb-26 max-w-7xl text-center">
         <h1 className="font-megrim text-7xl text-bright-snow ">
-          Cocktails Recipes
+          COCKTAILS RECIPES
         </h1>
 
         <p className="mt-4 text-base text-bright-snow/60   font-semibold ">
@@ -134,7 +131,7 @@ export default function CocktailsPage() {
                 type={cocktail.type}
                 alcohol={cocktail.alcohol}
                 difficulty={cocktail.difficulty}
-                favorites={cocktail.favorites}
+                favorites={cocktail.favourites}
               />
             </div>
           ))}
