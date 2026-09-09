@@ -3,7 +3,7 @@ export const cocktails_data = [
     id: 1,
     name: "Martini",
     type: "Classic",
-    image: "/cocktails/Martini.png",
+    image: "/cocktails/martini-cocktails.png",
     alcohol: "Gin",
     strongGrade: "Very Strong",
     difficulty: "Easy",
