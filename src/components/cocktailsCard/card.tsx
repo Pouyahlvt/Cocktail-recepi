@@ -4,7 +4,7 @@ import { Heart } from "lucide-react";
 import Image from "next/image";
 import { useRef, useState } from "react";
 import gsap from "gsap";
-
+import { useRouter } from "next/navigation";
 interface CocktailCardProps {
   name: string;
   image: string;
@@ -36,9 +36,17 @@ const CocktailCard = ({
 }: CocktailCardProps) => {
   const [isFavorite, setIsFavorite] = useState(false);
   const heartRef = useRef<SVGSVGElement>(null);
+  const router = useRouter();
+
+  const handleCardClick = () => {
+    router.push(`/cocktails/${name}`);
+  };
 
   return (
-    <div className="group relative h-full w-full overflow-hidden rounded-3xl bg-linear-to-br from-lnk-black to-dark-amethyst">
+    <div
+      onClick={handleCardClick}
+      className="group relative h-full w-full overflow-hidden rounded-3xl bg-linear-to-br 
+    from-lnk-black to-dark-amethyst cursor-pointer">
       {/* Cocktail Image */}
       <div
         className="

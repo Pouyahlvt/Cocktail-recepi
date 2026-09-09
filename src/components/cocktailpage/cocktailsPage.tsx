@@ -1,10 +1,10 @@
-/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
-import { ArrowDown, Eye, Heart, Martini, Sparkles, Wine } from "lucide-react";
+import { ArrowDown, Eye, Heart, Wine, Share2 } from "lucide-react";
+import Image from "next/image";
 import RecipeSteps from "./cocktailsRecipe";
 
 gsap.registerPlugin(ScrollToPlugin);
@@ -20,7 +20,7 @@ type Cocktail = {
   favourites: number;
   views: number;
   toppings: string[];
-  recpie: string[];
+  recipe: string[];
 };
 
 const CocktailRecipe = (cocktail: Cocktail) => {
@@ -37,7 +37,7 @@ const CocktailRecipe = (cocktail: Cocktail) => {
     favourites,
     views,
     toppings,
-    recpie,
+    recipe,
   } = cocktail;
 
   useLayoutEffect(() => {
@@ -85,7 +85,7 @@ const CocktailRecipe = (cocktail: Cocktail) => {
         .from(
           ".ingredient-card",
           {
-            y: 40,
+            x: 40,
             opacity: 0,
             duration: 0.8,
             ease: "power3.out",
@@ -116,7 +116,7 @@ const CocktailRecipe = (cocktail: Cocktail) => {
       duration: 1,
       scrollTo: {
         y: recipeRef.current,
-        offsetY: 40,
+        offsetY: 20,
       },
       ease: "power3.inOut",
     });
@@ -146,7 +146,12 @@ const CocktailRecipe = (cocktail: Cocktail) => {
 
             {/* Type */}
             <div className="cocktail-meta mt-8 flex items-center gap-3">
-              <span className="rounded-full border border-bright-sntext-bright-snow/15 bg-lnk-black/60 px-4 py-2 text-sm">
+              <button
+                className="w-12 h-12 flex justify-center items-center cursor-pointer hover:w-20  rounded-full 
+              border border-bright-snow/50 text-bright-snow bg-lnk-black/60 transition-normal duration-200">
+                <Share2 size={22} />
+              </button>
+              <span className="w-fit h-12 rounded-full border border-bright-snow/50 text-bright-snow/80 bg-lnk-black/60 px-4 py-3.5 text-sm select-none">
                 {type}
               </span>
 
@@ -187,7 +192,7 @@ const CocktailRecipe = (cocktail: Cocktail) => {
             </div>
 
             {/* Details */}
-            <div className="cocktail-meta mt-8 grid max-w-lg grid-cols-3 border-y border-bright-sntext-bright-snow/10 py-5">
+            <div className="cocktail-meta mt-8 grid max-w-lg grid-cols-3 border-y border-bright-sntext-bright-snow/10 py-5 ">
               <div>
                 <p className="mb-1 text-xs text-bright-snow/35">Alcohol</p>
 
@@ -213,8 +218,9 @@ const CocktailRecipe = (cocktail: Cocktail) => {
             {/* Button */}
             <button
               onClick={jumpToRecipe}
-              className="cocktail-meta group mt-10 flex items-center gap-4 rounded-full bg-bright-sntext-bright-snow px-6 py-3.5 text-sm font-medium text-onyx transition-transform duration-300 hover:scale-[1.03]">
-              <span>Start recipe</span>
+              className="cocktail-meta group mt-10 flex items-center gap-4 rounded-full  text-bright-snow 
+              pl-10 pr-5 py-3.5 text-xl cursor-pointer    border-2 ">
+              <span>Jump To recipe</span>
 
               <span className="flex h-7 w-7 items-center justify-center rounded-full bg-onyx text-bright-snow">
                 <ArrowDown
@@ -228,50 +234,34 @@ const CocktailRecipe = (cocktail: Cocktail) => {
           {/* ================= RIGHT ================= */}
 
           <div className="order-1 lg:order-2">
-            <div className="relative mx-auto max-w-155">
+            <div className="relative mx-auto ">
               {/* Image */}
-              <div className="cocktail-image relative aspect-4/5 overflow-hidden rounded-4xl bg-dark-amethyst">
-                <img
+              <div className="cocktail-image relative overflow-hidden rounded-4xl h-[90vh] ">
+                <Image
+                  width={450}
+                  height={100}
                   src={image}
                   alt={name}
-                  className="h-full w-full object-cover"
+                  className="object-cover mx-auto "
                 />
-
-                {/* Image gradient */}
-                <div className="absolute inset-0 bg-linear-to-t from-onyx/50 via-transparent to-transparent" />
-
-                {/* Floating type */}
-                <div className="absolute right-5 top-5 rounded-full border border-bright-sntext-bright-snow/15 bg-onyx/40 px-4 py-2 text-xs backdrop-blur-md">
-                  {type}
-                </div>
               </div>
 
               {/* Ingredients glass card */}
-              <div className="ingredient-card absolute -bottom-7 left-5 right-5 rounded-3xl border border-bright-sntext-bright-snow/15 bg-onyx/55 p-6 shadow-2xl backdrop-blur-2xl sm:left-8 sm:right-8 sm:p-7">
-                <div className="mb-5 flex items-center justify-between">
-                  <div>
-                    <p className="text-xs uppercase tracking-[0.2em] text-bright-snow/35">
-                      Toppings
-                    </p>
-
-                    <h3 className="mt-1 text-lg font-medium">
-                      Finish your cocktail
-                    </h3>
-                  </div>
-
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-lnk-black">
-                    <Sparkles size={17} />
-                  </div>
+              <div className="ingredient-card absolute bottom-10 shadow-2xl right-0 flex">
+                <div className="flex flex-wrap gap-2 items-center rounded-3xl  bg-bright-snow/60  sm:p-2 backdrop-blur-2xl">
+                  {toppings.map((topping, index) => (
+                    <div
+                      key={`${topping}-${index}`}
+                      className="w-25 aspect-square rounded-2xl bg-dark-amethyst/80  py-2 text-sm  text-bright-snow text-center tracking-tighter ">
+                      {topping}
+                    </div>
+                  ))}
                 </div>
 
-                <div className="flex flex-wrap gap-2">
-                  {toppings.map((topping, index) => (
-                    <span
-                      key={`${topping}-${index}`}
-                      className="rounded-full border border-bright-sntext-bright-snow/10 bg-dark-amethyst/80 px-4 py-2 text-sm text-bright-snow/75">
-                      {topping}
-                    </span>
-                  ))}
+                <div className="w-7 h-29 rounded-xl ml-2 bg-bright-snow/60 relative overflow-hidden">
+                  <div className="absolute rotate-90 text-center w-29 h-7 -right-11 top-11 text-xl font-black text-onyx">
+                    Toppings
+                  </div>
                 </div>
               </div>
             </div>
@@ -283,7 +273,7 @@ const CocktailRecipe = (cocktail: Cocktail) => {
       {/* RECIPE */}
       {/* ================================================= */}
       <section ref={recipeRef}>
-        <RecipeSteps name={name} recpie={recpie} />
+        <RecipeSteps name={name} recipe={recipe} />
       </section>
     </main>
   );
@@ -291,7 +281,7 @@ const CocktailRecipe = (cocktail: Cocktail) => {
 
 export default CocktailRecipe;
 
-// used this as recpie sections
+// used this as recipe sections
 
 // <section
 //         ref={recipeRef}
@@ -311,13 +301,13 @@ export default CocktailRecipe;
 //           <div className="flex items-center gap-2 text-sm text-bright-snow/35">
 //             <Martini size={16} />
 
-//             <span>{recpie.length} steps</span>
+//             <span>{recipe.length} steps</span>
 //           </div>
 //         </div>
 
 //         {/* Recipe steps */}
 //         <div className="space-y-4">
-//           {recpie.map((step, index) => (
+//           {recipe.map((step, index) => (
 //             <article
 //               key={`${step}-${index}`}
 //               className="recipe-step group relative overflow-hidden rounded-3xl border border-bright-sntext-bright-snow/10 bg-dark-amethyst/35 p-6 transition-all duration-500 hover:border-bright-sntext-bright-snow/20 hover:bg-dark-amethyst/55 sm:p-8">
@@ -331,7 +321,7 @@ export default CocktailRecipe;
 //                     {String(index + 1).padStart(2, "0")}
 //                   </span>
 
-//                   {index !== recpie.length - 1 && (
+//                   {index !== recipe.length - 1 && (
 //                     <span className="mt-3 h-full w-px bg-bright-sntext-bright-snow/10" />
 //                   )}
 //                 </div>

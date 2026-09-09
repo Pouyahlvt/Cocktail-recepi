@@ -1,45 +1,32 @@
-"use client";
-
+import { notFound } from "next/navigation";
+import { cocktails_data } from "@/src/data/cocktailsData";
 import CocktailRecipe from "@/src/components/cocktailpage/cocktailsPage";
 import Navbar from "@/src/components/navbar/navbar";
 
-const testCock = {
-  id: 1,
-  name: "Martini",
-  type: "Classic",
-  image: "/cocktails/martini-cocktails.png",
-  alcohol: "Gin",
-  strongGrade: "Very Strong",
-  difficulty: "Easy",
-  favourites: 1240,
-  views: 8420,
-  toppings: ["Lemon twist", "Green olive"],
-  recpie: [
-    "Fill a mixing glass with ice.",
-    "Add 60 ml gin and 10 ml dry vermouth.",
-    "Stir gently for 20 seconds.",
-    "Strain into a chilled martini glass.",
-    "Garnish with a lemon twist or green olive.",
-  ],
+type CocktailPageProps = {
+  params: Promise<{
+    slug: string;
+  }>;
 };
 
-const Cocktail_page = () => {
+const Cocktail_page = async ({ params }: CocktailPageProps) => {
+  const cocktails = cocktails_data;
+
+  const { slug } = await params;
+
+  // Decode the slug (handles %20 and other URL-encoded characters)
+  const decodedSlug = decodeURIComponent(slug);
+
+  const cocktail = cocktails.find((cocktail) => cocktail.name === decodedSlug);
+
+  if (!cocktail) {
+    notFound();
+  }
+
   return (
     <main>
       <Navbar />
-      <CocktailRecipe
-        id={testCock.id}
-        name={testCock.name}
-        type={testCock.type}
-        image={testCock.image}
-        alcohol={testCock.alcohol}
-        strongGrade={testCock.strongGrade}
-        difficulty={testCock.difficulty}
-        favourites={testCock.favourites}
-        views={testCock.views}
-        toppings={testCock.toppings}
-        recpie={testCock.recpie}
-      />
+      <CocktailRecipe {...cocktail} />
     </main>
   );
 };

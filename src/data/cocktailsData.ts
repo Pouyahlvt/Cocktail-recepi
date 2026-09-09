@@ -1,4 +1,6 @@
-export const cocktails_data = [
+import { CocktailsType } from "../types/cocktails.ts/cocktails_data";
+
+export const cocktails_data: CocktailsType[] = [
   {
     id: 1,
     name: "Martini",
@@ -10,7 +12,7 @@ export const cocktails_data = [
     favourites: 1240,
     views: 8420,
     toppings: ["Lemon twist", "Green olive"],
-    recpie: [
+    recipe: [
       "Fill a mixing glass with ice.",
       "Add 60 ml gin and 10 ml dry vermouth.",
       "Stir gently for 20 seconds.",
@@ -22,14 +24,14 @@ export const cocktails_data = [
     id: 2,
     name: "Old Fashioned",
     type: "Classic",
-    image: "/cocktails/Old Fashioned.png",
+    image: "/cocktails/old-fashioned.png",
     alcohol: "Bourbon",
     strongGrade: "Very Strong",
     difficulty: "Easy",
     favourites: 1560,
     views: 10450,
     toppings: ["Orange peel", "Cocktail cherry"],
-    recpie: [
+    recipe: [
       "Place one sugar cube in a rocks glass.",
       "Add 2 dashes of Angostura bitters.",
       "Add a small splash of water and dissolve the sugar.",
@@ -49,7 +51,7 @@ export const cocktails_data = [
     favourites: 1830,
     views: 12600,
     toppings: ["Orange peel"],
-    recpie: [
+    recipe: [
       "Fill a rocks glass with ice.",
       "Add 30 ml gin.",
       "Add 30 ml Campari.",
@@ -69,7 +71,7 @@ export const cocktails_data = [
     favourites: 2100,
     views: 15300,
     toppings: ["Lime wheel", "Salt rim"],
-    recpie: [
+    recipe: [
       "Rim a margarita glass with lime and salt.",
       "Fill a shaker with ice.",
       "Add 50 ml tequila, 25 ml triple sec, and 25 ml lime juice.",
@@ -89,7 +91,7 @@ export const cocktails_data = [
     favourites: 2310,
     views: 17800,
     toppings: ["Mint leaves", "Lime wedge"],
-    recpie: [
+    recipe: [
       "Add fresh mint leaves and lime wedges to a glass.",
       "Add 20 ml sugar syrup.",
       "Gently muddle the mint and lime.",
@@ -110,7 +112,7 @@ export const cocktails_data = [
     favourites: 1420,
     views: 9670,
     toppings: ["Orange twist"],
-    recpie: [
+    recipe: [
       "Fill a shaker with ice.",
       "Add 40 ml vodka.",
       "Add 20 ml triple sec.",
@@ -132,7 +134,7 @@ export const cocktails_data = [
     favourites: 1180,
     views: 7820,
     toppings: ["Cocktail cherry"],
-    recpie: [
+    recipe: [
       "Fill a mixing glass with ice.",
       "Add 60 ml rye whiskey.",
       "Add 30 ml sweet vermouth.",
@@ -153,7 +155,7 @@ export const cocktails_data = [
     favourites: 1090,
     views: 7210,
     toppings: ["Lime wheel"],
-    recpie: [
+    recipe: [
       "Fill a shaker with ice.",
       "Add 60 ml white rum.",
       "Add 25 ml fresh lime juice.",
@@ -174,7 +176,7 @@ export const cocktails_data = [
     favourites: 1740,
     views: 11900,
     toppings: ["Orange slice", "Cocktail cherry"],
-    recpie: [
+    recipe: [
       "Fill a shaker with ice.",
       "Add 60 ml bourbon.",
       "Add 30 ml fresh lemon juice.",
@@ -197,7 +199,7 @@ export const cocktails_data = [
     favourites: 1980,
     views: 14500,
     toppings: ["Lime wedge", "Mint"],
-    recpie: [
+    recipe: [
       "Fill a copper mug with ice.",
       "Add 50 ml vodka.",
       "Add 15 ml fresh lime juice.",
@@ -217,7 +219,7 @@ export const cocktails_data = [
     favourites: 870,
     views: 6540,
     toppings: ["Celery", "Lemon wedge", "Olive"],
-    recpie: [
+    recipe: [
       "Fill a tall glass with ice.",
       "Add 45 ml vodka.",
       "Add 90 ml tomato juice.",
@@ -239,7 +241,7 @@ export const cocktails_data = [
     favourites: 2450,
     views: 18700,
     toppings: ["Pineapple wedge", "Maraschino cherry"],
-    recpie: [
+    recipe: [
       "Add 50 ml white rum to a blender.",
       "Add 60 ml pineapple juice.",
       "Add 30 ml coconut cream.",
@@ -260,7 +262,7 @@ export const cocktails_data = [
     favourites: 1340,
     views: 9300,
     toppings: ["Orange slice", "Cherry"],
-    recpie: [
+    recipe: [
       "Fill a tall glass with ice.",
       "Add 45 ml tequila.",
       "Add 90 ml orange juice.",
@@ -281,7 +283,7 @@ export const cocktails_data = [
     favourites: 960,
     views: 7100,
     toppings: ["Lemon wheel", "Cherry"],
-    recpie: [
+    recipe: [
       "Fill a shaker with ice.",
       "Add 45 ml gin.",
       "Add 30 ml lemon juice.",
@@ -303,7 +305,7 @@ export const cocktails_data = [
     favourites: 780,
     views: 5900,
     toppings: ["Lemon slice"],
-    recpie: [
+    recipe: [
       "Add 50 ml gin to a shaker.",
       "Add 25 ml lemon juice.",
       "Add 15 ml simple syrup.",
@@ -324,7 +326,7 @@ export const cocktails_data = [
     favourites: 1120,
     views: 8400,
     toppings: ["Mint", "Lime wheel", "Pineapple"],
-    recpie: [
+    recipe: [
       "Fill a shaker with ice.",
       "Add 30 ml aged rum.",
       "Add 30 ml white rum.",
@@ -347,7 +349,7 @@ export const cocktails_data = [
     favourites: 1870,
     views: 13900,
     toppings: ["Lemon wedge"],
-    recpie: [
+    recipe: [
       "Fill a tall glass with ice.",
       "Add 15 ml vodka.",
       "Add 15 ml gin.",
@@ -371,7 +373,7 @@ export const cocktails_data = [
     favourites: 2210,
     views: 16400,
     toppings: ["Orange slice"],
-    recpie: [
+    recipe: [
       "Fill a wine glass with ice.",
       "Add 60 ml prosecco.",
       "Add 40 ml Aperol.",
@@ -391,7 +393,7 @@ export const cocktails_data = [
     favourites: 990,
     views: 7400,
     toppings: ["Lemon twist"],
-    recpie: [
+    recipe: [
       "Fill a shaker with ice.",
       "Add 30 ml gin.",
       "Add 15 ml lemon juice.",
@@ -413,7 +415,7 @@ export const cocktails_data = [
     favourites: 1370,
     views: 9800,
     toppings: ["Grapefruit wedge", "Salt rim"],
-    recpie: [
+    recipe: [
       "Rim a highball glass with salt.",
       "Fill the glass with ice.",
       "Add 50 ml tequila.",
@@ -434,7 +436,7 @@ export const cocktails_data = [
     favourites: 910,
     views: 6800,
     toppings: ["Lime wedge"],
-    recpie: [
+    recipe: [
       "Fill a glass with ice.",
       "Add 50 ml white rum.",
       "Add 15 ml fresh lime juice.",
@@ -454,7 +456,7 @@ export const cocktails_data = [
     favourites: 850,
     views: 6300,
     toppings: ["Lime wedge"],
-    recpie: [
+    recipe: [
       "Fill a tall glass with ice.",
       "Add 50 ml dark rum.",
       "Add 15 ml lime juice.",
@@ -474,7 +476,7 @@ export const cocktails_data = [
     favourites: 1030,
     views: 7700,
     toppings: ["Lemon slice", "Cherry"],
-    recpie: [
+    recipe: [
       "Fill a shaker with ice.",
       "Add 45 ml amaretto.",
       "Add 25 ml lemon juice.",
@@ -495,7 +497,7 @@ export const cocktails_data = [
     favourites: 820,
     views: 6100,
     toppings: ["Orange twist", "Sugar rim"],
-    recpie: [
+    recipe: [
       "Rim a coupe glass with sugar.",
       "Fill a shaker with ice.",
       "Add 50 ml cognac.",
@@ -517,7 +519,7 @@ export const cocktails_data = [
     favourites: 640,
     views: 4800,
     toppings: ["Orange slice", "Cherry"],
-    recpie: [
+    recipe: [
       "Fill a glass with ice.",
       "Add 45 ml vodka.",
       "Add 60 ml orange juice.",
@@ -537,7 +539,7 @@ export const cocktails_data = [
     favourites: 1290,
     views: 9200,
     toppings: ["Lemon wheel", "Cherry"],
-    recpie: [
+    recipe: [
       "Fill a tall glass with ice.",
       "Add 40 ml vodka.",
       "Add 20 ml blue curaçao.",
@@ -557,7 +559,7 @@ export const cocktails_data = [
     favourites: 2160,
     views: 17100,
     toppings: ["Orange slice", "Cherry"],
-    recpie: [
+    recipe: [
       "Fill a tall glass with ice.",
       "Add 40 ml vodka.",
       "Add 20 ml peach schnapps.",
@@ -578,7 +580,7 @@ export const cocktails_data = [
     favourites: 920,
     views: 6800,
     toppings: ["Pineapple", "Orange slice", "Cherry"],
-    recpie: [
+    recipe: [
       "Fill a shaker with ice.",
       "Add 30 ml dark rum.",
       "Add 30 ml coconut rum.",
@@ -601,7 +603,7 @@ export const cocktails_data = [
     favourites: 760,
     views: 5700,
     toppings: ["Orange slice", "Cherry"],
-    recpie: [
+    recipe: [
       "Fill a shaker with ice.",
       "Add 45 ml dark rum.",
       "Add 45 ml white rum.",
@@ -625,7 +627,7 @@ export const cocktails_data = [
     favourites: 710,
     views: 5300,
     toppings: ["Pineapple", "Cherry"],
-    recpie: [
+    recipe: [
       "Fill a shaker with ice.",
       "Add 30 ml gin.",
       "Add 15 ml cherry liqueur.",
@@ -650,7 +652,7 @@ export const cocktails_data = [
     favourites: 2780,
     views: 21300,
     toppings: ["Coffee beans"],
-    recpie: [
+    recipe: [
       "Fill a shaker with ice.",
       "Add 40 ml vodka.",
       "Add 20 ml coffee liqueur.",
@@ -672,7 +674,7 @@ export const cocktails_data = [
     favourites: 1190,
     views: 8900,
     toppings: ["Coffee beans"],
-    recpie: [
+    recipe: [
       "Fill a rocks glass with ice.",
       "Add 50 ml vodka.",
       "Add 25 ml coffee liqueur.",
@@ -692,7 +694,7 @@ export const cocktails_data = [
     favourites: 690,
     views: 5100,
     toppings: ["Cocktail cherry"],
-    recpie: [
+    recipe: [
       "Fill a rocks glass with ice.",
       "Add 50 ml vodka.",
       "Add 25 ml coffee liqueur.",
@@ -711,7 +713,7 @@ export const cocktails_data = [
     favourites: 970,
     views: 7300,
     toppings: ["Whipped cream", "Coffee beans"],
-    recpie: [
+    recipe: [
       "Warm an Irish coffee glass.",
       "Add 40 ml Irish whiskey.",
       "Add 15 ml brown sugar syrup.",
@@ -732,7 +734,7 @@ export const cocktails_data = [
     favourites: 1100,
     views: 8200,
     toppings: ["Whipped cream", "Chocolate shavings"],
-    recpie: [
+    recipe: [
       "Fill a blender with ice.",
       "Add 30 ml vodka.",
       "Add 30 ml coffee liqueur.",
@@ -754,7 +756,7 @@ export const cocktails_data = [
     favourites: 730,
     views: 5400,
     toppings: ["Orange peel"],
-    recpie: [
+    recipe: [
       "Fill a rocks glass with ice.",
       "Add 45 ml Scotch whisky.",
       "Add 25 ml amaretto.",
@@ -773,7 +775,7 @@ export const cocktails_data = [
     favourites: 580,
     views: 4300,
     toppings: ["Orange peel"],
-    recpie: [
+    recipe: [
       "Fill a rocks glass with ice.",
       "Add 45 ml vodka.",
       "Add 25 ml amaretto.",
@@ -792,7 +794,7 @@ export const cocktails_data = [
     favourites: 610,
     views: 4600,
     toppings: ["Lemon twist"],
-    recpie: [
+    recipe: [
       "Fill a rocks glass with ice.",
       "Add 45 ml Scotch whisky.",
       "Add 25 ml Drambuie.",
@@ -811,7 +813,7 @@ export const cocktails_data = [
     favourites: 670,
     views: 4900,
     toppings: ["Orange peel"],
-    recpie: [
+    recipe: [
       "Fill a mixing glass with ice.",
       "Add 45 ml bourbon.",
       "Add 30 ml Campari.",
@@ -832,7 +834,7 @@ export const cocktails_data = [
     favourites: 540,
     views: 4100,
     toppings: ["Orange slice", "Lemon peel"],
-    recpie: [
+    recipe: [
       "Fill a rocks glass with ice.",
       "Add 30 ml Campari.",
       "Add 30 ml sweet vermouth.",
@@ -852,7 +854,7 @@ export const cocktails_data = [
     favourites: 880,
     views: 6500,
     toppings: ["Lemon peel"],
-    recpie: [
+    recipe: [
       "Chill a rocks glass with ice.",
       "Add 1 sugar cube and bitters to a mixing glass.",
       "Add 60 ml rye whiskey.",
@@ -873,7 +875,7 @@ export const cocktails_data = [
     favourites: 790,
     views: 5800,
     toppings: ["Fresh mint"],
-    recpie: [
+    recipe: [
       "Add fresh mint and 10 ml simple syrup to a julep cup.",
       "Gently press the mint.",
       "Fill the cup with crushed ice.",
@@ -894,7 +896,7 @@ export const cocktails_data = [
     favourites: 520,
     views: 3900,
     toppings: ["Raspberry", "Lemon twist"],
-    recpie: [
+    recipe: [
       "Add 50 ml gin to a shaker.",
       "Add 25 ml lemon juice.",
       "Add 15 ml raspberry syrup.",
@@ -916,7 +918,7 @@ export const cocktails_data = [
     favourites: 630,
     views: 4700,
     toppings: ["Maraschino cherry", "Lemon peel"],
-    recpie: [
+    recipe: [
       "Fill a shaker with ice.",
       "Add 45 ml gin.",
       "Add 15 ml lemon juice.",
@@ -938,7 +940,7 @@ export const cocktails_data = [
     favourites: 720,
     views: 5500,
     toppings: ["Maraschino cherry"],
-    recpie: [
+    recipe: [
       "Fill a shaker with ice.",
       "Add 25 ml gin.",
       "Add 25 ml green Chartreuse.",
@@ -960,7 +962,7 @@ export const cocktails_data = [
     favourites: 490,
     views: 3600,
     toppings: ["Lemon peel"],
-    recpie: [
+    recipe: [
       "Rinse a coupe glass with absinthe.",
       "Fill a shaker with ice.",
       "Add 25 ml gin.",
@@ -983,7 +985,7 @@ export const cocktails_data = [
     favourites: 580,
     views: 4300,
     toppings: ["Lemon twist", "Honey"],
-    recpie: [
+    recipe: [
       "Add 50 ml gin to a shaker.",
       "Add 25 ml lemon juice.",
       "Add 20 ml honey syrup.",
@@ -1004,7 +1006,7 @@ export const cocktails_data = [
     favourites: 860,
     views: 6400,
     toppings: ["Lime wheel"],
-    recpie: [
+    recipe: [
       "Fill a shaker with ice.",
       "Add 60 ml gin.",
       "Add 30 ml fresh lime juice.",
@@ -1025,7 +1027,7 @@ export const cocktails_data = [
     favourites: 620,
     views: 4700,
     toppings: ["Mint leaves", "Lime wheel"],
-    recpie: [
+    recipe: [
       "Add fresh mint to a shaker.",
       "Add 60 ml gin.",
       "Add 25 ml lime juice.",
@@ -1047,7 +1049,7 @@ export const cocktails_data = [
     favourites: 430,
     views: 3300,
     toppings: ["Lemon wheel", "Cherry"],
-    recpie: [
+    recipe: [
       "Fill a tall glass with ice.",
       "Add 45 ml bourbon.",
       "Add 30 ml lemon juice.",
@@ -1068,7 +1070,7 @@ export const cocktails_data = [
     favourites: 1320,
     views: 10100,
     toppings: ["Lime wedges"],
-    recpie: [
+    recipe: [
       "Cut one lime into wedges.",
       "Add the lime to a rocks glass.",
       "Add 2 teaspoons of sugar.",
@@ -1089,7 +1091,7 @@ export const cocktails_data = [
     favourites: 740,
     views: 5600,
     toppings: ["Lime wedges"],
-    recpie: [
+    recipe: [
       "Cut one lime into wedges.",
       "Add lime and sugar to a glass.",
       "Muddle gently.",
@@ -1109,7 +1111,7 @@ export const cocktails_data = [
     favourites: 930,
     views: 6900,
     toppings: ["Lime", "Angostura bitters"],
-    recpie: [
+    recipe: [
       "Add 60 ml pisco to a shaker.",
       "Add 30 ml lime juice.",
       "Add 20 ml simple syrup.",
@@ -1131,7 +1133,7 @@ export const cocktails_data = [
     favourites: 680,
     views: 5100,
     toppings: ["Candied ginger", "Lemon peel"],
-    recpie: [
+    recipe: [
       "Add 60 ml blended Scotch to a shaker.",
       "Add 22 ml fresh lemon juice.",
       "Add 22 ml honey-ginger syrup.",
@@ -1152,7 +1154,7 @@ export const cocktails_data = [
     favourites: 810,
     views: 6200,
     toppings: ["Orange peel"],
-    recpie: [
+    recipe: [
       "Fill a shaker with ice.",
       "Add 30 ml bourbon.",
       "Add 30 ml Aperol.",
@@ -1174,7 +1176,7 @@ export const cocktails_data = [
     favourites: 560,
     views: 4200,
     toppings: ["Lime wheel"],
-    recpie: [
+    recipe: [
       "Fill a shaker with ice.",
       "Add 22 ml mezcal.",
       "Add 22 ml Aperol.",
@@ -1196,7 +1198,7 @@ export const cocktails_data = [
     favourites: 740,
     views: 5500,
     toppings: ["Pineapple leaf", "Lime wedge"],
-    recpie: [
+    recipe: [
       "Fill a shaker with ice.",
       "Add 45 ml dark rum.",
       "Add 45 ml pineapple juice.",
@@ -1219,7 +1221,7 @@ export const cocktails_data = [
     favourites: 930,
     views: 7100,
     toppings: ["Mint", "Pineapple", "Cherry"],
-    recpie: [
+    recipe: [
       "Fill a shaker with crushed ice.",
       "Add 30 ml dark rum.",
       "Add 30 ml gold rum.",
@@ -1244,7 +1246,7 @@ export const cocktails_data = [
     favourites: 1020,
     views: 7600,
     toppings: ["Nutmeg", "Pineapple", "Orange"],
-    recpie: [
+    recipe: [
       "Fill a shaker with ice.",
       "Add 60 ml dark rum.",
       "Add 120 ml pineapple juice.",
@@ -1266,7 +1268,7 @@ export const cocktails_data = [
     favourites: 410,
     views: 3100,
     toppings: ["Orange slice", "Cherry"],
-    recpie: [
+    recipe: [
       "Fill a tall glass with ice.",
       "Add 40 ml gin.",
       "Add 60 ml orange juice.",
@@ -1287,7 +1289,7 @@ export const cocktails_data = [
     favourites: 680,
     views: 5100,
     toppings: ["Orange slice", "Cherry"],
-    recpie: [
+    recipe: [
       "Fill a shaker with ice.",
       "Add 30 ml white rum.",
       "Add 30 ml dark rum.",
@@ -1311,7 +1313,7 @@ export const cocktails_data = [
     favourites: 490,
     views: 3700,
     toppings: ["Peach slice", "Orange slice"],
-    recpie: [
+    recipe: [
       "Fill a glass with ice.",
       "Add 45 ml peach schnapps.",
       "Add 90 ml orange juice.",
@@ -1330,7 +1332,7 @@ export const cocktails_data = [
     favourites: 610,
     views: 4500,
     toppings: ["Grapefruit wedge", "Lime"],
-    recpie: [
+    recipe: [
       "Fill a highball glass with ice.",
       "Add 45 ml vodka.",
       "Add 90 ml cranberry juice.",
@@ -1350,7 +1352,7 @@ export const cocktails_data = [
     favourites: 530,
     views: 4000,
     toppings: ["Lime wedge", "Cranberry"],
-    recpie: [
+    recipe: [
       "Fill a highball glass with ice.",
       "Add 45 ml vodka.",
       "Add 90 ml cranberry juice.",
@@ -1370,7 +1372,7 @@ export const cocktails_data = [
     favourites: 470,
     views: 3500,
     toppings: ["Orange slice", "Cherry"],
-    recpie: [
+    recipe: [
       "Fill a glass with ice.",
       "Add 45 ml vodka.",
       "Add 45 ml orange juice.",
@@ -1390,7 +1392,7 @@ export const cocktails_data = [
     favourites: 980,
     views: 7200,
     toppings: ["Apple slice"],
-    recpie: [
+    recipe: [
       "Fill a shaker with ice.",
       "Add 45 ml vodka.",
       "Add 30 ml apple schnapps.",
@@ -1411,7 +1413,7 @@ export const cocktails_data = [
     favourites: 1210,
     views: 9100,
     toppings: ["Lemon wheel", "Sugar rim"],
-    recpie: [
+    recipe: [
       "Rim a martini glass with sugar.",
       "Fill a shaker with ice.",
       "Add 45 ml vodka.",
@@ -1433,7 +1435,7 @@ export const cocktails_data = [
     favourites: 760,
     views: 5700,
     toppings: ["Lime wheel"],
-    recpie: [
+    recipe: [
       "Fill a shaker with ice.",
       "Add 30 ml vodka.",
       "Add 30 ml triple sec.",
@@ -1454,7 +1456,7 @@ export const cocktails_data = [
     favourites: 1140,
     views: 8600,
     toppings: ["Pineapple wedge", "Cherry"],
-    recpie: [
+    recipe: [
       "Fill a shaker with ice.",
       "Add 30 ml white rum.",
       "Add 30 ml blue curaçao.",
@@ -1476,7 +1478,7 @@ export const cocktails_data = [
     favourites: 460,
     views: 3400,
     toppings: ["Pineapple", "Cherry"],
-    recpie: [
+    recipe: [
       "Fill a shaker with ice.",
       "Add 30 ml gin.",
       "Add 15 ml cherry liqueur.",
@@ -1499,7 +1501,7 @@ export const cocktails_data = [
     favourites: 870,
     views: 6400,
     toppings: ["Orange", "Pineapple", "Cherry"],
-    recpie: [
+    recipe: [
       "Fill a shaker with ice.",
       "Add 45 ml rum.",
       "Add 60 ml pineapple juice.",
@@ -1522,7 +1524,7 @@ export const cocktails_data = [
     favourites: 620,
     views: 4700,
     toppings: ["Orange", "Cherry", "Mint"],
-    recpie: [
+    recipe: [
       "Fill a shaker with ice.",
       "Add 60 ml dark rum.",
       "Add 30 ml lime juice.",
@@ -1545,7 +1547,7 @@ export const cocktails_data = [
     favourites: 510,
     views: 3800,
     toppings: ["Orange", "Pineapple", "Cherry"],
-    recpie: [
+    recipe: [
       "Fill a blender with ice.",
       "Add 30 ml rum.",
       "Add 30 ml brandy.",
@@ -1568,7 +1570,7 @@ export const cocktails_data = [
     favourites: 380,
     views: 2900,
     toppings: ["Orange peel"],
-    recpie: [
+    recipe: [
       "Fill a shaker with ice.",
       "Add 30 ml Galliano.",
       "Add 30 ml orange liqueur.",
@@ -1590,7 +1592,7 @@ export const cocktails_data = [
     favourites: 730,
     views: 5500,
     toppings: ["Mint", "Chocolate shavings"],
-    recpie: [
+    recipe: [
       "Fill a shaker with ice.",
       "Add 30 ml crème de menthe.",
       "Add 30 ml crème de cacao.",
@@ -1611,7 +1613,7 @@ export const cocktails_data = [
     favourites: 550,
     views: 4100,
     toppings: ["Nutmeg"],
-    recpie: [
+    recipe: [
       "Fill a shaker with ice.",
       "Add 30 ml brandy.",
       "Add 30 ml crème de cacao.",
@@ -1632,7 +1634,7 @@ export const cocktails_data = [
     favourites: 430,
     views: 3200,
     toppings: ["Nutmeg", "Chocolate"],
-    recpie: [
+    recipe: [
       "Fill a shaker with ice.",
       "Add 30 ml gin.",
       "Add 30 ml crème de cacao.",
@@ -1653,7 +1655,7 @@ export const cocktails_data = [
     favourites: 350,
     views: 2600,
     toppings: ["Coffee beans", "Orange peel"],
-    recpie: [
+    recipe: [
       "Prepare a fresh cup of hot coffee.",
       "Add 30 ml coffee liqueur.",
       "Add 15 ml orange liqueur.",
@@ -1673,7 +1675,7 @@ export const cocktails_data = [
     favourites: 470,
     views: 3500,
     toppings: ["Cucumber", "Lemon"],
-    recpie: [
+    recipe: [
       "Fill a shaker with ice.",
       "Add 50 ml Irish whiskey.",
       "Add 25 ml lemon juice.",
@@ -1696,7 +1698,7 @@ export const cocktails_data = [
     favourites: 590,
     views: 4400,
     toppings: ["Lemon wheel", "Mint"],
-    recpie: [
+    recipe: [
       "Fill a Collins glass with ice.",
       "Add 45 ml gin.",
       "Add 20 ml elderflower liqueur.",
@@ -1718,7 +1720,7 @@ export const cocktails_data = [
     favourites: 930,
     views: 7000,
     toppings: ["Fresh basil", "Lemon wheel"],
-    recpie: [
+    recipe: [
       "Add fresh basil and simple syrup to a shaker.",
       "Muddle the basil gently.",
       "Add 60 ml gin.",
@@ -1740,7 +1742,7 @@ export const cocktails_data = [
     favourites: 820,
     views: 6100,
     toppings: ["Blackberry", "Lemon wheel"],
-    recpie: [
+    recipe: [
       "Fill a shaker with ice.",
       "Add 50 ml gin.",
       "Add 25 ml lemon juice.",
@@ -1762,7 +1764,7 @@ export const cocktails_data = [
     favourites: 640,
     views: 4800,
     toppings: ["Blackberry", "Lemon twist"],
-    recpie: [
+    recipe: [
       "Chill a champagne flute.",
       "Add 10 ml crème de cassis.",
       "Slowly top with chilled champagne.",
@@ -1781,7 +1783,7 @@ export const cocktails_data = [
     favourites: 1280,
     views: 9700,
     toppings: ["Peach slice"],
-    recpie: [
+    recipe: [
       "Chill a champagne flute.",
       "Add 30 ml peach purée.",
       "Slowly top with chilled prosecco.",
@@ -1800,7 +1802,7 @@ export const cocktails_data = [
     favourites: 1490,
     views: 11200,
     toppings: ["Orange slice"],
-    recpie: [
+    recipe: [
       "Chill a champagne flute.",
       "Pour 75 ml chilled orange juice into the glass.",
       "Slowly top with 75 ml champagne or sparkling wine.",
@@ -1819,7 +1821,7 @@ export const cocktails_data = [
     favourites: 360,
     views: 2700,
     toppings: ["Blackcurrant berry"],
-    recpie: [
+    recipe: [
       "Chill a wine glass.",
       "Add 10 ml crème de cassis.",
       "Top slowly with chilled white wine.",
@@ -1838,7 +1840,7 @@ export const cocktails_data = [
     favourites: 710,
     views: 5400,
     toppings: ["Orange slice"],
-    recpie: [
+    recipe: [
       "Fill a wine glass with ice.",
       "Add 60 ml prosecco.",
       "Add 40 ml bitter aperitif.",
@@ -1858,7 +1860,7 @@ export const cocktails_data = [
     favourites: 980,
     views: 7400,
     toppings: ["Mint", "Lime", "Elderflower"],
-    recpie: [
+    recipe: [
       "Fill a large wine glass with ice.",
       "Add 20 ml elderflower liqueur.",
       "Add 90 ml prosecco.",
@@ -1878,7 +1880,7 @@ export const cocktails_data = [
     favourites: 420,
     views: 3100,
     toppings: ["Orange wedge"],
-    recpie: [
+    recipe: [
       "Fill a tall glass with ice.",
       "Add 45 ml Campari.",
       "Top with fresh orange juice.",
@@ -1897,7 +1899,7 @@ export const cocktails_data = [
     favourites: 2010,
     views: 15900,
     toppings: ["Lime wheel", "Cucumber"],
-    recpie: [
+    recipe: [
       "Fill a highball glass with ice.",
       "Add 50 ml gin.",
       "Slowly top with tonic water.",
@@ -1916,7 +1918,7 @@ export const cocktails_data = [
     favourites: 870,
     views: 6500,
     toppings: ["Lime wedge"],
-    recpie: [
+    recipe: [
       "Fill a highball glass with ice.",
       "Add 50 ml vodka.",
       "Top with tonic water.",
@@ -1935,7 +1937,7 @@ export const cocktails_data = [
     favourites: 1060,
     views: 7900,
     toppings: ["Lime wedge"],
-    recpie: [
+    recipe: [
       "Fill a glass with ice.",
       "Add 50 ml rum.",
       "Top with cola.",
@@ -1954,7 +1956,7 @@ export const cocktails_data = [
     favourites: 690,
     views: 5100,
     toppings: ["Lime wedge"],
-    recpie: [
+    recipe: [
       "Fill a highball glass with ice.",
       "Add 50 ml whiskey.",
       "Top with ginger ale.",
@@ -1973,7 +1975,7 @@ export const cocktails_data = [
     favourites: 610,
     views: 4500,
     toppings: ["Lime wedge", "Mint"],
-    recpie: [
+    recipe: [
       "Fill a mule mug with ice.",
       "Add 50 ml tequila.",
       "Add 15 ml lime juice.",
@@ -1993,7 +1995,7 @@ export const cocktails_data = [
     favourites: 540,
     views: 4000,
     toppings: ["Lime wedge", "Mint"],
-    recpie: [
+    recipe: [
       "Fill a mule mug with ice.",
       "Add 50 ml bourbon.",
       "Add 15 ml lime juice.",
@@ -2013,7 +2015,7 @@ export const cocktails_data = [
     favourites: 670,
     views: 5000,
     toppings: ["Blackberries", "Lemon wheel", "Mint"],
-    recpie: [
+    recipe: [
       "Muddle fresh blackberries with simple syrup.",
       "Add 50 ml gin.",
       "Add 25 ml lemon juice.",
@@ -2034,7 +2036,7 @@ export const cocktails_data = [
     favourites: 890,
     views: 6700,
     toppings: ["Fresh raspberries", "Lemon twist"],
-    recpie: [
+    recipe: [
       "Fill a shaker with ice.",
       "Add 45 ml vodka.",
       "Add 20 ml raspberry liqueur.",
@@ -2056,7 +2058,7 @@ export const cocktails_data = [
     favourites: 1870,
     views: 14200,
     toppings: ["Passion fruit", "Lime"],
-    recpie: [
+    recipe: [
       "Fill a shaker with ice.",
       "Add 40 ml vanilla vodka.",
       "Add 20 ml passion fruit liqueur.",
@@ -2079,7 +2081,7 @@ export const cocktails_data = [
     favourites: 1640,
     views: 12800,
     toppings: ["Strawberry", "Lime wheel"],
-    recpie: [
+    recipe: [
       "Add fresh strawberries to a blender.",
       "Add 50 ml white rum.",
       "Add 25 ml lime juice.",
@@ -2101,7 +2103,7 @@ export const cocktails_data = [
     favourites: 1430,
     views: 10900,
     toppings: ["Watermelon wedge", "Lime wheel", "Salt rim"],
-    recpie: [
+    recipe: [
       "Rim a margarita glass with lime and salt.",
       "Fill a shaker with ice.",
       "Add 50 ml tequila.",
