@@ -140,7 +140,7 @@ const CocktailRecipe = (cocktail: Cocktail) => {
             </div>
 
             {/* Name */}
-            <h1 className="cocktail-name max-w-xl text-6xl font-medium tracking-[-0.04em] sm:text-7xl lg:text-[6.5rem] lg:leading-[0.9]">
+            <h1 className="cocktail-name max-w-xl text-nowrap text-6xl font-medium tracking-[-0.04em] sm:text-7xl lg:text-[6.5rem] lg:leading-[0.9]">
               {name}
             </h1>
 
@@ -237,13 +237,15 @@ const CocktailRecipe = (cocktail: Cocktail) => {
             <div className="relative mx-auto ">
               {/* Image */}
               <div className="cocktail-image relative overflow-hidden rounded-4xl h-[90vh] ">
-                <Image
-                  width={450}
-                  height={100}
-                  src={image}
-                  alt={name}
-                  className="object-cover mx-auto "
-                />
+                <div className=" w-[80%] aspect-square mx-auto mt-10">
+                  <Image
+                    width={1000}
+                    height={100}
+                    src={image}
+                    alt={name}
+                    className="w-full mx-auto  h-full object-cover"
+                  />
+                </div>
               </div>
 
               {/* Ingredients glass card */}
@@ -258,7 +260,7 @@ const CocktailRecipe = (cocktail: Cocktail) => {
                   ))}
                 </div>
 
-                <div className="w-7 h-29 rounded-xl ml-2 bg-bright-snow/60 relative overflow-hidden">
+                <div className="w-7 h-29 rounded-xl ml-2 bg-bright-snow/60 relative overflow-hidden select-none">
                   <div className="absolute rotate-90 text-center w-29 h-7 -right-11 top-11 text-xl font-black text-onyx">
                     Toppings
                   </div>
