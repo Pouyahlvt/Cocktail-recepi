@@ -235,10 +235,9 @@ const Gallery = ({ children }: GalleryProps) => {
     if (difference < 0) {
       next();
     } else {
-
-    /*
-     * Swipe RIGHT
-     */
+      /*
+       * Swipe RIGHT
+       */
       previous();
     }
   };
@@ -253,7 +252,7 @@ const Gallery = ({ children }: GalleryProps) => {
       className="
         relative
         flex
-        h-[520px]
+        h-130
         w-full
         items-center
         justify-center
@@ -289,11 +288,11 @@ const Gallery = ({ children }: GalleryProps) => {
             }}
             className="
               absolute
-              h-[420px]
-              w-[280px]
-              md:h-[460px]
-              md:w-[300px]
-              lg:h-[480px]
+              h-105
+              w-70
+              md:h-115
+              md:w-75
+              lg:h-120
               lg:w-[320px]
             "
             style={{
@@ -318,7 +317,7 @@ const Gallery = ({ children }: GalleryProps) => {
           absolute
           left-3
           top-1/2
-          z-[100]
+          z-100
           flex
           h-11
           w-11
@@ -327,9 +326,9 @@ const Gallery = ({ children }: GalleryProps) => {
           justify-center
           rounded-full
           border
-          border-[#fafafa]/20
-          bg-[#131313]/70
-          text-[#fafafa]
+          border-bright-snow/20
+          bg-onyx/70
+          text-bright-snow
           backdrop-blur-md
           transition
           duration-200
@@ -353,7 +352,7 @@ const Gallery = ({ children }: GalleryProps) => {
           absolute
           right-3
           top-1/2
-          z-[100]
+          z-100
           flex
           h-11
           w-11
@@ -362,9 +361,9 @@ const Gallery = ({ children }: GalleryProps) => {
           justify-center
           rounded-full
           border
-          border-[#fafafa]/20
-          bg-[#131313]/70
-          text-[#fafafa]
+          border-bright-snow/20
+          bg-onyx/70
+          text-bright-snow
           backdrop-blur-md
           transition
           duration-200
