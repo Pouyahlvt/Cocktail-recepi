@@ -25,6 +25,6 @@ export interface CocktailsType {
   difficulty: "Easy" | "Medium" | "Hard";
   favourites: number;
   views: number;
-  toppings: string[];
+  ingredients: string[];
   recipe: string[]; // Corrected spelling
 }

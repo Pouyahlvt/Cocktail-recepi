@@ -2,6 +2,9 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { createClient } from "@/src/lib/supabase/client";
+
 import Input_logIn from "./input";
 import Button_logIn from "./button_login";
 import { Martini, LucideWine } from "lucide-react";
@@ -15,8 +18,31 @@ const Login = ({ switchToSignUp }: LoginProps) => {
   const [password, setPassword] = useState("");
   const [cheers, setCheers] = useState(false);
 
-  const handle_click = () => {
+  const supabase = createClient();
+  const router = useRouter();
+
+  const handle_click = async () => {
     setCheers((prev) => !prev);
+
+    if (!gmail || !password) {
+      alert("Please fill in all fields.");
+      return;
+    }
+
+    const { error } = await supabase.auth.signInWithPassword({
+      email: gmail,
+      password,
+    });
+
+    if (error) {
+      alert(error.message);
+      return;
+    }
+
+    alert("Login successful!");
+
+    router.push("/");
+    router.refresh();
   };
 
   return (

@@ -2,6 +2,7 @@
 "use client";
 
 import { useState } from "react";
+import { createClient } from "@/src/lib/supabase/client";
 import Input_logIn from "./input";
 import Button_logIn from "./button_login";
 import { Martini, LucideWine } from "lucide-react";
@@ -16,8 +17,39 @@ const SignUp = ({ switchToLogin }: SignUpProps) => {
   const [password, setPassword] = useState("");
   const [cheers, setCheers] = useState(false);
 
-  const handle_click = () => {
+  const supabase = createClient();
+
+  const handle_click = async () => {
     setCheers((prev) => !prev);
+
+    if (!name || !gmail || !password) {
+      alert("Please fill in all fields.");
+      return;
+    }
+
+    if (password.length < 6) {
+      alert("Password must be at least 6 characters.");
+      return;
+    }
+
+    const { error } = await supabase.auth.signUp({
+      email: gmail,
+      password,
+      options: {
+        data: {
+          name,
+        },
+      },
+    });
+
+    if (error) {
+      alert(error.message);
+      return;
+    }
+
+    alert("Account created! Please check your email and confirm your account.");
+
+    switchToLogin();
   };
 
   return (
