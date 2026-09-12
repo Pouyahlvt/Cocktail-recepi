@@ -61,13 +61,6 @@ const Login = ({ switchToSignUp }: LoginProps) => {
           <div className="login-el mt-8">
             <Button_logIn text="Log In" click_handeler={handle_click} />
           </div>
-
-          <div className="login-el mt-3">
-            <Button_logIn
-              text="Log In With Google"
-              click_handeler={handle_click}
-            />
-          </div>
         </div>
       </div>
 

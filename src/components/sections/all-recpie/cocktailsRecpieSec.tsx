@@ -9,32 +9,12 @@ import { cocktails_data } from "@/src/data/cocktailsData";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// interface Cocktail {
-//   id: number;
-//   name: string;
-//   type: string;
-//   image: string;
-//   alcohol: string;
-//   difficulty: "Easy" | "Medium" | "Hard";
-//   favorites: number;
-// }
-
-// // One fake cocktail
-// const fakeCocktail: Cocktail = {
-//   id: 1,
-//   name: "Negroni",
-//   type: "Classic",
-//   image: "/cocktails/negroni.png",
-//   alcohol: "Gin",
-//   difficulty: "Medium",
-//   favorites: 12400,
-// };
-
 const COCKTAILS_PER_PAGE = 20;
 
-const cocktails = cocktails_data;
-
-export default function CocktailsPage() {
+export default function CocktailsPage({
+  cocktails = cocktails_data,
+  just_cards = false,
+}) {
   const [currentPage, setCurrentPage] = useState(1);
 
   const gridRef = useRef<HTMLDivElement>(null);
@@ -102,7 +82,8 @@ export default function CocktailsPage() {
   return (
     <main className="min-h-screen bg-onyx px-10 py-20 font-megrim">
       {/* Header */}
-      <section className="text-section mx-auto mb-26 max-w-7xl text-center">
+      <section
+        className={`text-section mx-auto mb-26 max-w-7xl text-center ${just_cards ? "hidden" : ""}`}>
         <h1 className="font-megrim text-7xl text-bright-snow ">
           COCKTAILS RECIPES
         </h1>
@@ -114,16 +95,20 @@ export default function CocktailsPage() {
 
       {/* Cocktail Grid */}
       <section className="mx-auto max-w-7xl">
-        <Filtering />
-        <div ref={gridRef} className="grid grid-cols-4 gap-x-6 gap-y-10">
+        <div className={`${just_cards ? "hidden" : ""}`}>
+          <Filtering />
+        </div>
+        <div
+          ref={gridRef}
+          className={`grid gap-x-6 gap-y-10 ${just_cards ? "grid-cols-3" : "grid-cols-4"}`}>
           {currentCocktails.map((cocktail, index) => (
             <div
               key={`${cocktail.name}-${index}`}
               className="
             h-95
-            w-62.5
+            w-full
             md:h-105
-            md:w-70
+            
             ">
               <CocktailCard
                 name={cocktail.name}
@@ -190,7 +175,8 @@ function Pagination({
   const pages = getPages();
 
   return (
-    <div className="mt-20 flex items-center justify-center gap-3">
+    <div
+      className={`mt-20 flex items-center justify-center gap-3 ${pages.length === 1 ? "hidden" : ""}`}>
       {/* Previous */}
       <button
         onClick={() => onPageChange(currentPage - 1)}
