@@ -111,6 +111,7 @@ export default function CocktailsPage({
             
             ">
               <CocktailCard
+                id={cocktail.id}
                 name={cocktail.name}
                 image={cocktail.image}
                 type={cocktail.type}

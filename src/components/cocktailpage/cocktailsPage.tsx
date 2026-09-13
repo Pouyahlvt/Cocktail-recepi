@@ -15,7 +15,7 @@ type Cocktail = {
   type: string;
   image: string;
   alcohol: string;
-  strongGrade: string;
+  strongGrade: number;
   difficulty: string;
   favourites: number;
   views: number;
@@ -205,7 +205,7 @@ const CocktailRecipe = (cocktail: Cocktail) => {
               <div className="border-l border-bright-sntext-bright-snow/10 pl-5">
                 <p className="mb-1 text-xs text-bright-snow/35">Strength</p>
 
-                <p className="text-sm">{strongGrade}</p>
+                <p className="text-sm">{strongGrade}%</p>
               </div>
 
               <div className="border-l border-bright-sntext-bright-snow/10 pl-5">

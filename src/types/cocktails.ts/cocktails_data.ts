@@ -21,7 +21,7 @@ export interface CocktailsType {
   type: string;
   image: string;
   alcohol: string;
-  strongGrade: "Very Strong" | "Standard" | "Light";
+  strongGrade: number;
   difficulty: "Easy" | "Medium" | "Hard";
   favourites: number;
   views: number;

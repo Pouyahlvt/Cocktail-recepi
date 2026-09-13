@@ -1,11 +1,10 @@
 "use client";
 
-import { Heart } from "lucide-react";
+import FavoriteButton from "@/src/components/ui/favouriteButton";
 import Image from "next/image";
-import { useRef, useState } from "react";
-import gsap from "gsap";
 import { useRouter } from "next/navigation";
 interface CocktailCardProps {
+  id: number;
   name: string;
   image: string;
   type: string;
@@ -14,19 +13,8 @@ interface CocktailCardProps {
   favorites: number;
 }
 
-const formatFavorites = (number: number) => {
-  if (number >= 1000) {
-    return `${(number / 1000).toFixed(number >= 10000 ? 0 : 1)}k`;
-  }
-
-  if (number >= 1000000) {
-    return `${(number / 1000000).toFixed(number >= 10000 ? 0 : 1)}m`;
-  }
-
-  return number.toString();
-};
-
 const CocktailCard = ({
+  id,
   name,
   image,
   type,
@@ -34,8 +22,6 @@ const CocktailCard = ({
   difficulty,
   favorites,
 }: CocktailCardProps) => {
-  const [isFavorite, setIsFavorite] = useState(false);
-  const heartRef = useRef<SVGSVGElement>(null);
   const router = useRouter();
 
   const handleCardClick = () => {
@@ -97,82 +83,8 @@ const CocktailCard = ({
           </h3>
 
           {/* Favorite */}
-          <button
-            type="button"
-            onClick={(event) => {
-              event.stopPropagation();
 
-              const newState = !isFavorite;
-              setIsFavorite(newState);
-
-              if (heartRef.current) {
-                if (newState) {
-                  gsap.fromTo(
-                    heartRef.current,
-                    {
-                      scale: 0.7,
-                      rotation: -10,
-                    },
-                    {
-                      scale: 1,
-                      rotation: 0,
-                      duration: 0.35,
-                      ease: "back.out(3)",
-                    },
-                  );
-
-                  // Small pop effect
-                  gsap.fromTo(
-                    heartRef.current,
-                    {
-                      filter: "drop-shadow(0 0 0px transparent)",
-                    },
-                    {
-                      filter: "drop-shadow(0 0 8px rgba(250,250,250,0.5))",
-                      duration: 0.25,
-                      yoyo: true,
-                      repeat: 1,
-                    },
-                  );
-                } else {
-                  gsap.to(heartRef.current, {
-                    scale: 0.8,
-                    duration: 0.12,
-                    ease: "power2.out",
-                    onComplete: () => {
-                      gsap.to(heartRef.current, {
-                        scale: 1,
-                        duration: 0.2,
-                        ease: "back.out(2)",
-                      });
-                    },
-                  });
-                }
-              }
-            }}
-            className="group/heart flex shrink-0 flex-col items-center gap-1"
-            aria-label={
-              isFavorite
-                ? `Remove ${name} from favorites`
-                : `Add ${name} to favorites`
-            }>
-            <Heart
-              ref={heartRef}
-              className={`
-      h-5 w-5 transition-colors duration-200
-      ${
-        isFavorite
-          ? "fill-bright-snow text-bright-snow"
-          : "text-bright-snow/80 group-hover/heart:text-bright-snow"
-      }
-    `}
-              strokeWidth={1.5}
-            />
-
-            <span className="text-[9px] text-bright-snow/50">
-              {formatFavorites(favorites + (isFavorite ? 1 : 0))}
-            </span>
-          </button>
+          <FavoriteButton cocktailId={id} favorites={favorites} />
         </div>
       </div>
 
