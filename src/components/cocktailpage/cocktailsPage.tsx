@@ -3,9 +3,10 @@
 import { useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
-import { ArrowDown, Eye, Heart, Wine, Share2 } from "lucide-react";
+import { ArrowDown, Eye, Wine, Share2 } from "lucide-react";
 import Image from "next/image";
 import RecipeSteps from "./cocktailsRecipe";
+import FavoriteButton from "../ui/favouriteButton";
 
 gsap.registerPlugin(ScrollToPlugin);
 
@@ -28,6 +29,7 @@ const CocktailRecipe = (cocktail: Cocktail) => {
   const recipeRef = useRef<HTMLElement>(null);
 
   const {
+    id,
     name,
     type,
     image,
@@ -39,6 +41,8 @@ const CocktailRecipe = (cocktail: Cocktail) => {
     ingredients,
     recipe,
   } = cocktail;
+
+  console.log("THis is favourites", cocktail.favourites, favourites);
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
@@ -163,15 +167,13 @@ const CocktailRecipe = (cocktail: Cocktail) => {
             {/* Stats */}
             <div className="cocktail-meta mt-8 flex gap-8 ">
               <div className="flex items-center gap-2.5">
-                <Heart
-                  size={19}
-                  strokeWidth={1.5}
-                  className="text-bright-snow/60"
+                <FavoriteButton
+                  cocktailId={id}
+                  favorites={cocktail.favourites}
+                  showFavs={false}
                 />
 
-                <p className="text-lg font-medium">
-                  {favourites.toLocaleString()}
-                </p>
+                <p className="text-lg font-medium">{cocktail.favourites}</p>
 
                 <p className="text-xs text-bright-snow/35">Favourites</p>
               </div>
@@ -185,7 +187,7 @@ const CocktailRecipe = (cocktail: Cocktail) => {
                   className="text-bright-snow/60"
                 />
 
-                <p className="text-lg font-medium">{views.toLocaleString()}</p>
+                <p className="text-lg font-medium">{cocktail.views}</p>
 
                 <p className="text-xs text-bright-snow/35">Views</p>
               </div>
@@ -233,7 +235,7 @@ const CocktailRecipe = (cocktail: Cocktail) => {
 
           {/* ================= RIGHT ================= */}
 
-          <div className="order-1 lg:order-2">
+          <div className="order-1 lg:order-2 overflow-hidden">
             <div className="relative mx-auto ">
               {/* Image */}
               <div className="cocktail-image relative overflow-hidden rounded-4xl h-[90vh] ">
@@ -251,12 +253,12 @@ const CocktailRecipe = (cocktail: Cocktail) => {
               {/* Ingredients glass card */}
               <div className="ingredient-card absolute bottom-10 shadow-2xl right-0 flex ">
                 <div
-                  className="flex max-w-[70%] ml-auto gap-2  rounded-t-3xl  bg-bright-snow/0  
+                  className="flex max-w-[40%] ml-auto gap-2  rounded-t-3xl  bg-bright-snow/0  
                   p-2 backdrop-blur-2xl overflow-hidden overflow-x-auto ">
                   {ingredients.map((topping, index) => (
                     <div
                       key={`${topping}-${index}`}
-                      className="w-25 aspect-square rounded-2xl bg-dark-amethyst/80 py-2 text-sm  
+                      className="w-25 aspect-square rounded-2xl bg-dark-amethyst/40 py-2 text-sm  
                       text-bright-snow text-center tracking-tighter ">
                       {topping}
                     </div>

@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
-import { cocktails_data } from "@/src/data/cocktailsData";
 import CocktailRecipe from "@/src/components/cocktailpage/cocktailsPage";
 import Navbar from "@/src/components/navbar/navbar";
+import { getAllCocktails } from "@/src/lib/cocktails";
 
 type CocktailPageProps = {
   params: Promise<{
@@ -10,11 +10,10 @@ type CocktailPageProps = {
 };
 
 const Cocktail_page = async ({ params }: CocktailPageProps) => {
-  const cocktails = cocktails_data;
+  const cocktails = await getAllCocktails();
 
   const { slug } = await params;
 
-  // Decode the slug (handles %20 and other URL-encoded characters)
   const decodedSlug = decodeURIComponent(slug);
 
   const cocktail = cocktails.find((cocktail) => cocktail.name === decodedSlug);
@@ -22,6 +21,8 @@ const Cocktail_page = async ({ params }: CocktailPageProps) => {
   if (!cocktail) {
     notFound();
   }
+
+  console.log({ ...cocktail });
 
   return (
     <main>

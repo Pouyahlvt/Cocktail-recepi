@@ -12,6 +12,7 @@ import { addFavorite, removeFavorite } from "@/src/lib/favourites";
 interface FavoriteButtonProps {
   cocktailId: number;
   favorites: number;
+  showFavs?: boolean;
 }
 
 const formatFavorites = (number: number) => {
@@ -26,7 +27,11 @@ const formatFavorites = (number: number) => {
   return number.toString();
 };
 
-const FavoriteButton = ({ cocktailId, favorites }: FavoriteButtonProps) => {
+const FavoriteButton = ({
+  cocktailId,
+  favorites,
+  showFavs = true,
+}: FavoriteButtonProps) => {
   const router = useRouter();
   const supabase = createClient();
 
@@ -90,6 +95,7 @@ const FavoriteButton = ({ cocktailId, favorites }: FavoriteButtonProps) => {
         rotation: -10,
       },
       {
+        fill: "#fafafa",
         scale: 1,
         rotation: 0,
         duration: 0.35,
@@ -118,6 +124,7 @@ const FavoriteButton = ({ cocktailId, favorites }: FavoriteButtonProps) => {
     if (!heartRef.current) return;
 
     gsap.to(heartRef.current, {
+      fill: "none",
       scale: 0.8,
       duration: 0.12,
       ease: "power2.out",
@@ -152,16 +159,16 @@ const FavoriteButton = ({ cocktailId, favorites }: FavoriteButtonProps) => {
 
     if (isFavorite) {
       // Remove favorite
-      const success = await removeFavorite(user.id, cocktailId);
       animateRemove();
+      const success = await removeFavorite(user.id, cocktailId);
 
       if (success) {
         setIsFavorite(false);
       } else animateAdd();
     } else {
       // Add favorite
-      const success = await addFavorite(user.id, cocktailId);
       animateAdd();
+      const success = await addFavorite(user.id, cocktailId);
 
       if (success) {
         setIsFavorite(true);
@@ -173,12 +180,6 @@ const FavoriteButton = ({ cocktailId, favorites }: FavoriteButtonProps) => {
     setIsLoading(false);
   };
 
-  /*
-   * Optimistic count for this card.
-   *
-   * favorites comes from the cocktail itself.
-   * If this user has favorited it, show +1.
-   */
   const displayedFavorites = favorites + (isFavorite ? 1 : 0);
 
   return (
@@ -193,16 +194,14 @@ const FavoriteButton = ({ cocktailId, favorites }: FavoriteButtonProps) => {
         className={`
           h-5 w-5
           transition-colors duration-200
-          ${
-            isFavorite
-              ? "fill-bright-snow text-bright-snow"
-              : "text-bright-snow/80 group-hover/heart:text-bright-snow"
-          }
+          text-bright-snow
+          ${isFavorite ? "fill-bright-snow " : " "}
         `}
         strokeWidth={1.5}
       />
 
-      <span className="text-[9px] text-bright-snow/50">
+      <span
+        className={`text-[9px] text-bright-snow/50 ${showFavs ? "" : "hidden"}`}>
         {formatFavorites(displayedFavorites)}
       </span>
     </button>

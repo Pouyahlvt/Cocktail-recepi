@@ -99,6 +99,8 @@ export const addFavorite = async (userId: string, cocktailId: number) => {
     .eq("id", cocktailId);
 
   if (updateError) {
+    console.error("COCKTAIL UPDATE ERROR:", updateError);
+
     return {
       success: false,
       error: updateError.message,

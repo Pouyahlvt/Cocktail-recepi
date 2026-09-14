@@ -25,6 +25,10 @@ const Navbar = () => {
     router.push(`/profile/user`);
   };
 
+  const handle_martinti = () => {
+    router.push("/");
+  };
+
   useEffect(() => {
     // Get current logged-in user
     const getUser = async () => {
@@ -99,9 +103,14 @@ const Navbar = () => {
   return (
     <div ref={navbarRef} className="w-full mx-auto flex fixed top-5 h-fit z-30">
       <div className="flex rounded-full backdrop-blur-lg px-5">
-        <Martini className="ml-5 my-auto" color="white" size={40} />
+        <Martini
+          onClick={handle_martinti}
+          className="ml-5 my-auto cursor-pointer"
+          color="white"
+          size={40}
+        />
 
-        <h1 className="ml-5 text-4xl font-megrim font-bold text-bright-snow my-auto ">
+        <h1 className="ml-5 text-4xl font-megrim font-bold text-bright-snow my-auto select-none ">
           C - Recpie
         </h1>
       </div>
