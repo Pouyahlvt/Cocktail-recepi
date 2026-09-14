@@ -5,10 +5,14 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import ScrollTrigger from "gsap/ScrollTrigger";
-
+import { CocktailsType } from "@/src/types/cocktails.ts/cocktails_data";
 gsap.registerPlugin(ScrollTrigger);
 
-const Most_viewed = () => {
+interface Props {
+  cocktails: CocktailsType[];
+}
+
+const Most_viewed = ({ cocktails }: Props) => {
   const headOneRef = useRef<HTMLHeadingElement>(null);
   const headTwoRef = useRef<HTMLHeadingElement>(null);
   const galleryRef = useRef<HTMLDivElement>(null);
@@ -76,7 +80,7 @@ const Most_viewed = () => {
         </h2>
       </div>
       <div ref={galleryRef} className="w-full pb-20">
-        <CocktailGalleryMV />
+        <CocktailGalleryMV cocktails={cocktails} />
       </div>
     </div>
   );

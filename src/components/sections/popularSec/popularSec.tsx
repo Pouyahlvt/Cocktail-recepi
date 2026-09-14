@@ -4,10 +4,15 @@ import CocktailGallery from "./CocktailsGallery";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { useEffect, useRef } from "react";
+import { CocktailsType } from "@/src/types/cocktails.ts/cocktails_data";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const PopularCocktails = () => {
+interface Props {
+  cocktails: CocktailsType[];
+}
+
+const PopularCocktails = ({ cocktails }: Props) => {
   const headingRef = useRef<HTMLDivElement>(null);
   const galleryRef = useRef<HTMLDivElement>(null);
 
@@ -71,7 +76,7 @@ const PopularCocktails = () => {
         <div
           ref={galleryRef}
           className="flex flex-1 items-center justify-center">
-          <CocktailGallery />
+          <CocktailGallery cocktails={cocktails} />
         </div>
       </div>
     </section>

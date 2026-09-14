@@ -7,7 +7,10 @@ import type { User } from "@supabase/supabase-js";
 import gsap from "gsap";
 
 import { createClient } from "@/src/lib/supabase/client";
-import { addFavorite, removeFavorite } from "@/src/lib/favourites";
+import {
+  addFavorite,
+  removeFavorite,
+} from "@/src/lib/favourites&views/favourites";
 
 interface FavoriteButtonProps {
   cocktailId: number;

@@ -4,86 +4,91 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { useRef, useState } from "react";
 import CocktailCard from "../../cocktailsCard/card";
+import { CocktailsType } from "@/src/types/cocktails.ts/cocktails_data";
 
 gsap.registerPlugin(useGSAP);
 
-interface Cocktail {
-  id: number;
-  name: string;
-  type: string;
-  image: string;
-  alcohol: string;
-  difficulty: "Easy" | "Medium" | "Hard";
-  favorites: number;
+// interface Cocktail {
+//   id: number;
+//   name: string;
+//   type: string;
+//   image: string;
+//   alcohol: string;
+//   difficulty: "Easy" | "Medium" | "Hard";
+//   favorites: number;
+// }
+
+// const fake_cocktails: Cocktail[] = [
+//   {
+//     id: 1,
+//     name: "Negroni",
+//     type: "Classic",
+//     image: "/cocktails/negroni.png",
+//     alcohol: "Gin",
+//     difficulty: "Medium",
+//     favorites: 12400,
+//   },
+//   {
+//     id: 2,
+//     name: "Martini",
+//     type: "Classic",
+//     image: "/cocktails/martini-cocktails.png",
+//     alcohol: "Vodka",
+//     difficulty: "Easy",
+//     favorites: 8700,
+//   },
+//   {
+//     id: 3,
+//     name: "Mojito",
+//     type: "Refreshing",
+//     image: "/cocktails/mojito.png",
+//     alcohol: "Rum",
+//     difficulty: "Easy",
+//     favorites: 15200,
+//   },
+//   {
+//     id: 4,
+//     name: "Old Fashioned",
+//     type: "Classic",
+//     image: "/cocktails/old-fashioned.png",
+//     alcohol: "Whiskey",
+//     difficulty: "Medium",
+//     favorites: 11300,
+//   },
+//   {
+//     id: 5,
+//     name: "Margarita",
+//     type: "Tequila",
+//     image: "/cocktails/margarita.png",
+//     alcohol: "Tequila",
+//     difficulty: "Easy",
+//     favorites: 21800,
+//   },
+//   {
+//     id: 6,
+//     name: "Daiquiri",
+//     type: "Rum",
+//     image: "/cocktails/daiquiri.png",
+//     alcohol: "Rum",
+//     difficulty: "Medium",
+//     favorites: 6400,
+//   },
+//   {
+//     id: 7,
+//     name: "Cosmopolitan",
+//     type: "Vodka",
+//     image: "/cocktails/cosmopolitan.png",
+//     alcohol: "Vodka",
+//     difficulty: "Easy",
+//     favorites: 9800,
+//   },
+// ];
+
+interface Props {
+  cocktails: CocktailsType[];
 }
 
-const cocktails: Cocktail[] = [
-  {
-    id: 1,
-    name: "Negroni",
-    type: "Classic",
-    image: "/cocktails/negroni.png",
-    alcohol: "Gin",
-    difficulty: "Medium",
-    favorites: 12400,
-  },
-  {
-    id: 2,
-    name: "Martini",
-    type: "Classic",
-    image: "/cocktails/martini-cocktails.png",
-    alcohol: "Vodka",
-    difficulty: "Easy",
-    favorites: 8700,
-  },
-  {
-    id: 3,
-    name: "Mojito",
-    type: "Refreshing",
-    image: "/cocktails/mojito.png",
-    alcohol: "Rum",
-    difficulty: "Easy",
-    favorites: 15200,
-  },
-  {
-    id: 4,
-    name: "Old Fashioned",
-    type: "Classic",
-    image: "/cocktails/old-fashioned.png",
-    alcohol: "Whiskey",
-    difficulty: "Medium",
-    favorites: 11300,
-  },
-  {
-    id: 5,
-    name: "Margarita",
-    type: "Tequila",
-    image: "/cocktails/margarita.png",
-    alcohol: "Tequila",
-    difficulty: "Easy",
-    favorites: 21800,
-  },
-  {
-    id: 6,
-    name: "Daiquiri",
-    type: "Rum",
-    image: "/cocktails/daiquiri.png",
-    alcohol: "Rum",
-    difficulty: "Medium",
-    favorites: 6400,
-  },
-  {
-    id: 7,
-    name: "Cosmopolitan",
-    type: "Vodka",
-    image: "/cocktails/cosmopolitan.png",
-    alcohol: "Vodka",
-    difficulty: "Easy",
-    favorites: 9800,
-  },
-];
-
-const CocktailGalleryMV = () => {
+const CocktailGalleryMV = ({ cocktails }: Props) => {
   const galleryRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
   const progressRef = useRef<HTMLDivElement>(null);
@@ -291,7 +296,8 @@ const CocktailGalleryMV = () => {
               type={cocktail.type}
               alcohol={cocktail.alcohol}
               difficulty={cocktail.difficulty}
-              favorites={cocktail.favorites}
+              favorites={cocktail.favourites}
+              id={cocktail.id}
             />
           </div>
         ))}

@@ -42,8 +42,6 @@ const CocktailRecipe = (cocktail: Cocktail) => {
     recipe,
   } = cocktail;
 
-  console.log("THis is favourites", cocktail.favourites, favourites);
-
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       const intro = gsap.timeline();
@@ -173,7 +171,7 @@ const CocktailRecipe = (cocktail: Cocktail) => {
                   showFavs={false}
                 />
 
-                <p className="text-lg font-medium">{cocktail.favourites}</p>
+                <p className="text-lg font-medium">{favourites}</p>
 
                 <p className="text-xs text-bright-snow/35">Favourites</p>
               </div>
@@ -187,7 +185,7 @@ const CocktailRecipe = (cocktail: Cocktail) => {
                   className="text-bright-snow/60"
                 />
 
-                <p className="text-lg font-medium">{cocktail.views}</p>
+                <p className="text-lg font-medium">{views}</p>
 
                 <p className="text-xs text-bright-snow/35">Views</p>
               </div>

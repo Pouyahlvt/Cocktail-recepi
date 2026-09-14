@@ -50,6 +50,10 @@ const CocktailCard = ({
           draggable={false}
           className="object-contain p-5"
           sizes="280px"
+          onError={(e) => {
+            e.currentTarget.srcset = "";
+            e.currentTarget.src = "hero-martini.png";
+          }}
         />
       </div>
 

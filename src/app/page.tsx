@@ -4,19 +4,27 @@ import PopularCocktails from "../components/sections/popularSec/popularSec";
 import Most_viewed from "../components/sections/most-viewed/most-viewed";
 import CocktailsPage from "../components/sections/all-recpie/cocktailsRecpieSec";
 import Footer from "../components/sections/footer/footer";
-import { getAllCocktails } from "@/src/lib/cocktails";
+import {
+  getAllCocktails,
+  getMostPopularCocktails,
+  getMostViewedCocktails,
+} from "@/src/lib/cocktails";
 
 const Home = async () => {
-  const cocktails = await getAllCocktails();
+  const [cocktails, mostPopular, mostViewed] = await Promise.all([
+    getAllCocktails(),
+    getMostPopularCocktails(),
+    getMostViewedCocktails(),
+  ]);
 
   return (
     <div className="w-full min-h-screen bg-onyx">
       <Hero />
       <Navbar />
 
-      <PopularCocktails />
+      <PopularCocktails cocktails={mostPopular} />
 
-      <Most_viewed />
+      <Most_viewed cocktails={mostViewed} />
 
       <CocktailsPage cocktails={cocktails} />
 

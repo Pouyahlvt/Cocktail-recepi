@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import CocktailRecipe from "@/src/components/cocktailpage/cocktailsPage";
 import Navbar from "@/src/components/navbar/navbar";
 import { getAllCocktails } from "@/src/lib/cocktails";
+import RecordView from "@/src/components/cocktailpage/recordViews";
 
 type CocktailPageProps = {
   params: Promise<{
@@ -27,6 +28,7 @@ const Cocktail_page = async ({ params }: CocktailPageProps) => {
   return (
     <main>
       <Navbar />
+      <RecordView cocktailId={cocktail.id} />
       <CocktailRecipe {...cocktail} />
     </main>
   );
