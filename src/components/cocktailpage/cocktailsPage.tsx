@@ -233,7 +233,7 @@ const CocktailRecipe = (cocktail: Cocktail) => {
 
           {/* ================= RIGHT ================= */}
 
-          <div className="order-1 lg:order-2 overflow-hidden">
+          <div className="order-1 lg:order-2 overflow-hidden ">
             <div className="relative mx-auto ">
               {/* Image */}
               <div className="cocktail-image relative overflow-hidden rounded-4xl h-[90vh] ">
@@ -253,9 +253,9 @@ const CocktailRecipe = (cocktail: Cocktail) => {
               </div>
 
               {/* Ingredients glass card */}
-              <div className="ingredient-card absolute bottom-10 shadow-2xl right-0 flex ">
+              <div className="ingredient-card absolute bottom-10  right-0 flex ">
                 <div
-                  className="flex max-w-[40%] ml-auto gap-2  rounded-t-3xl  bg-bright-snow/0  
+                  className="flex w-full ml-auto gap-2  rounded-t-3xl  bg-bright-snow/0  
                   p-2 backdrop-blur-2xl overflow-hidden overflow-x-auto ">
                   {ingredients.map((topping, index) => (
                     <div
@@ -268,7 +268,9 @@ const CocktailRecipe = (cocktail: Cocktail) => {
                 </div>
 
                 <div className="w-7 h-29 rounded-xl ml-2 bg-bright-snow/60 relative overflow-hidden select-none">
-                  <div className="absolute rotate-90 text-center w-29 h-7 -right-11 top-11 text-lg font-black text-onyx">
+                  <div
+                    className="absolute rotate-90 text-center w-29 h-7 -right-11 top-11 text-lg font-bold 
+                  text-onyx">
                     INGREDIENTS
                   </div>
                 </div>

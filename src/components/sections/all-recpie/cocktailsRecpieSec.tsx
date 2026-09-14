@@ -27,6 +27,48 @@ export default function CocktailsPage({
     startIndex + COCKTAILS_PER_PAGE,
   );
 
+  //filtering states
+  const [alcohol, setAlcohol] = useState("");
+  const [difficulty, setDifficulty] = useState("");
+  const [strongly, setstrongly] = useState("");
+  const [sort, setSort] = useState("");
+
+  //filtering functions
+
+  useEffect(() => {
+    if (alcohol !== "") {
+      cocktails.filter((cocktail) => cocktail.alcohol === alcohol);
+    }
+
+    if (difficulty !== "") {
+      cocktails.filter((cocktail) => cocktail.difficulty === difficulty);
+    }
+
+    if (strongly !== "") {
+      if (strongly.toLowerCase() === "light") {
+        cocktails.filter((cocktail) => cocktail.strongGrade <= 40);
+      } else if (strongly.toLowerCase() === "standard") {
+        cocktails.filter(
+          (cocktail) => cocktail.strongGrade > 40 && cocktail.strongGrade <= 70,
+        );
+      } else {
+        cocktails.filter((cocktail) => cocktail.strongGrade > 70);
+      }
+    }
+
+    if (sort !== "") {
+      if (sort.toLowerCase() === "a to z") {
+        cocktails.sort((a, b) => a.name.localeCompare(b.name));
+      }
+      if (sort.toLowerCase() === "popular") {
+        cocktails.sort((a, b) => b.favourites - a.favourites);
+      }
+      if (sort.toLowerCase() === "views") {
+        cocktails.sort((a, b) => b.views - a.views);
+      }
+    }
+  }, [alcohol, difficulty, strongly, sort, cocktails]);
+
   useEffect(() => {
     if (!gridRef.current) return;
 
@@ -96,7 +138,12 @@ export default function CocktailsPage({
       {/* Cocktail Grid */}
       <section className="mx-auto max-w-7xl">
         <div className={`${just_cards ? "hidden" : ""}`}>
-          <Filtering />
+          <Filtering
+            setAlcohol_filter={setAlcohol}
+            setDifficulty_filter={setDifficulty}
+            setStrongly_filter={setstrongly}
+            setSort_filter={setSort}
+          />
         </div>
         <div
           ref={gridRef}
