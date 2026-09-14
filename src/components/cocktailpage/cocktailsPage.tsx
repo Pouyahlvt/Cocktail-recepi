@@ -244,6 +244,10 @@ const CocktailRecipe = (cocktail: Cocktail) => {
                     src={image}
                     alt={name}
                     className="w-fit mx-auto h-full object-cover"
+                    onError={(e) => {
+                      e.currentTarget.srcset = "";
+                      e.currentTarget.src = "/hero-martini.png";
+                    }}
                   />
                 </div>
               </div>

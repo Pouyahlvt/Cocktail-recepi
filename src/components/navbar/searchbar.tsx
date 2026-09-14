@@ -4,27 +4,22 @@ import { SearchIcon, MoveLeft } from "lucide-react";
 import { useState, useEffect } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { useSearch } from "@/src/hooks/searchHooks";
+import { useRouter } from "next/navigation";
 
 const Search_bar = () => {
   const [active, setActive] = useState(false);
   const [show, setShow] = useState(false);
-  const [searchKey, setSearchKey] = useState("");
-  const facke_Results = [
-    "Martini",
-    "GodFather",
-    "sex in the beatch",
-    "lemon dragon",
-    "angry dragon",
-    "Martini",
-    "GodFather",
-    "sex in the beatch",
-    "lemon dragon",
-    "angry dragon",
-  ];
+  const router = useRouter();
+  const { searchTerm, setSearchTerm, cocktails: filtered } = useSearch();
+
+  const handleCardClick = (name: string) => {
+    router.push(`/cocktails/${name}`);
+  };
 
   const search_handeller = () => {
     if (active) {
-      if (searchKey.length > 0) {
+      if (searchTerm.length > 0) {
         setShow(true);
       } else {
         console.error("Search something mother fucker !");
@@ -69,7 +64,7 @@ const Search_bar = () => {
         transition-all duration-300 ease-in-out cursor-pointer"
             onClick={() => {
               setActive(false);
-              setSearchKey("");
+              setSearchTerm("");
               setShow(false);
             }}>
             <MoveLeft size={30} className="mx-auto" />
@@ -80,8 +75,11 @@ const Search_bar = () => {
        ${active ? "hover:bg-bright-snow/90   rounded-full" : "rounded-l-full "} `}>
           <input
             onFocus={() => setActive(true)}
-            onChange={(e) => setSearchKey(e.target.value)}
-            value={searchKey}
+            onChange={(e) => {
+              setSearchTerm(e.target.value);
+              setShow(false);
+            }}
+            value={searchTerm}
             type="text"
             placeholder="Search items "
             className="w-full mx-7 outline-0 text-xl font-semibold font-megrim"
@@ -102,16 +100,22 @@ const Search_bar = () => {
             scrollbarWidth: "thin",
             scrollbarColor: "#fafafa #131313",
           }}>
-          <h2 className="text-xl text-bright-snow/90 font-megrim">
+          <h2
+            className={`text-xl text-bright-snow/90 font-megrim ${show ? "" : "opacity-0 -translate-x-5"}`}>
             Search Results :{" "}
           </h2>
-          {facke_Results.map((cocktails, index) => (
+          {filtered.map((cocktails) => (
             <div
-              key={`search-${index}`}
-              className={`search-result flex shrink text-3xl ml-10 text-bright-snow   font-megrim border-b-2 cursor-pointer 
-               opacity-0 -translate-y-10 ${show ? "" : "hidden"}`}>
-              <span className="w-full hover:translate-x-5 transition-all duration-200 ease-in-out py-4 delay-100">
-                {cocktails}
+              key={`search-${cocktails.id}`}
+              onClick={() => handleCardClick(cocktails.name)}
+              className={`search-result flex shrink text-3xl ml-10 text-bright-snow  font-megrim border-b-2 cursor-pointer 
+               opacity-60 -translate-y-10 justify-between group ${searchTerm.length === 0 ? "hidden" : ""}`}>
+              <span className="w-full group-hover:translate-x-5 transition-all duration-200 ease-in-out p-4 ">
+                {cocktails.name}
+              </span>
+              <span
+                className={`p-4 -translate-x-10 opacity-0  transition-all duration-300 ease-out group-hover:opacity-100 group-hover:translate-x-0`}>
+                ▶
               </span>
             </div>
           ))}

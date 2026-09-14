@@ -2,7 +2,22 @@ import { createClient } from "@/src/lib/supabase/server";
 
 import type { CocktailsType } from "@/src/types/cocktails.ts/cocktails_data";
 
-const mapCocktail = (cocktail: any): CocktailsType => ({
+// this is ai idea for make fix be carefull 💀💀💀💀
+type CocktailRow = {
+  id: number;
+  name: string;
+  type: string;
+  image: string;
+  alcohol: string;
+  strength_rate: number;
+  difficulty: string;
+  favorites: number;
+  views: number;
+  ingredients: string[];
+  recipe: string[];
+};
+
+const mapCocktail = (cocktail: CocktailRow): CocktailsType => ({
   id: cocktail.id,
   name: cocktail.name,
   type: cocktail.type,
