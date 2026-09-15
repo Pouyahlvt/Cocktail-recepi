@@ -7,6 +7,7 @@ import { ArrowDown, Eye, Wine, Share2 } from "lucide-react";
 import Image from "next/image";
 import RecipeSteps from "./cocktailsRecipe";
 import FavoriteButton from "../ui/favouriteButton";
+import ShareButton from "../ui/sharebtn";
 
 gsap.registerPlugin(ScrollToPlugin);
 
@@ -148,11 +149,12 @@ const CocktailRecipe = (cocktail: Cocktail) => {
 
             {/* Type */}
             <div className="cocktail-meta mt-8 flex items-center gap-3">
-              <button
+              <ShareButton title={cocktail.name} />
+              {/* <button
                 className="w-12 h-12 flex justify-center items-center cursor-pointer hover:w-20  rounded-full 
               border border-bright-snow/50 text-bright-snow bg-lnk-black/60 transition-normal duration-200">
                 <Share2 size={22} />
-              </button>
+              </button> */}
               <span className="w-fit h-12 rounded-full border border-bright-snow/50 text-bright-snow/80 bg-lnk-black/60 px-4 py-3.5 text-sm select-none">
                 {type}
               </span>
