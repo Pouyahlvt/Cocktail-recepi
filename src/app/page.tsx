@@ -4,6 +4,8 @@ import PopularCocktails from "../components/sections/popularSec/popularSec";
 import Most_viewed from "../components/sections/most-viewed/most-viewed";
 import CocktailsPage from "../components/sections/all-recpie/cocktailsRecpieSec";
 import Footer from "../components/sections/footer/footer";
+import InitialLoader from "../components/loadings/IntilianLoader";
+
 import {
   getAllCocktails,
   getMostPopularCocktails,
@@ -18,18 +20,21 @@ const Home = async () => {
   ]);
 
   return (
-    <div className="w-full min-h-screen bg-onyx">
-      <Hero />
-      <Navbar />
+    <>
+      <InitialLoader />
+      <main className="w-full min-h-screen bg-onyx">
+        <Hero />
+        <Navbar />
 
-      <PopularCocktails cocktails={mostPopular} />
+        <PopularCocktails cocktails={mostPopular} />
 
-      <Most_viewed cocktails={mostViewed} />
+        <Most_viewed cocktails={mostViewed} />
 
-      <CocktailsPage cocktails={cocktails} />
+        <CocktailsPage cocktails={cocktails} />
 
-      <Footer />
-    </div>
+        <Footer />
+      </main>
+    </>
   );
 };
 
