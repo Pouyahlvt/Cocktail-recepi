@@ -6,6 +6,7 @@ import { createClient } from "@/src/lib/supabase/client";
 import Input_logIn from "./input";
 import Button_logIn from "./button_login";
 import { Martini, LucideWine } from "lucide-react";
+import Alert from "../ui/alert";
 
 type SignUpProps = {
   switchToLogin: () => void;
@@ -16,6 +17,11 @@ const SignUp = ({ switchToLogin }: SignUpProps) => {
   const [gmail, setGmail] = useState("");
   const [password, setPassword] = useState("");
   const [cheers, setCheers] = useState(false);
+  const [alerts, setAlerts] = useState<{
+    text: string;
+    type: "error" | "success" | "warning" | "info" | undefined;
+  }>({ text: "", type: "info" });
+  const [show, setShow] = useState(false);
 
   const supabase = createClient();
 
@@ -23,12 +29,17 @@ const SignUp = ({ switchToLogin }: SignUpProps) => {
     setCheers((prev) => !prev);
 
     if (!name || !gmail || !password) {
-      alert("Please fill in all fields.");
+      setAlerts({ text: "Please fill in all fields.", type: "error" });
+      setShow(true);
       return;
     }
 
     if (password.length < 6) {
-      alert("Password must be at least 6 characters.");
+      setAlerts({
+        text: "Password must be at least 6 characters.",
+        type: "error",
+      });
+      setShow(true);
       return;
     }
 
@@ -43,17 +54,29 @@ const SignUp = ({ switchToLogin }: SignUpProps) => {
     });
 
     if (error) {
-      alert(error.message);
+      setAlerts({ text: error.message, type: "error" });
+      setShow(true);
       return;
     }
 
-    alert("Account created! Please check your email and confirm your account.");
+    setAlerts({
+      text: "Account created! Please check your email and confirm your account.",
+      type: "error",
+    });
+    setShow(true);
 
     switchToLogin();
   };
 
   return (
     <div className="w-full min-h-screen bg-linear-to-b from-dark-amethyst to-onyx text-bright-snow font-megrim flex">
+      {show && (
+        <Alert
+          text={alerts.text}
+          onClose={() => setShow(false)}
+          type={alerts.type}
+        />
+      )}
       {/* IMAGE */}
       <div className="signup-image-section w-1/2 min-h-screen flex flex-col items-center justify-center p-10 order-1">
         <img

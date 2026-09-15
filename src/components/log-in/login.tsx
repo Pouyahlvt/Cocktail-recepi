@@ -8,6 +8,7 @@ import { createClient } from "@/src/lib/supabase/client";
 import Input_logIn from "./input";
 import Button_logIn from "./button_login";
 import { Martini, LucideWine } from "lucide-react";
+import Alert from "../ui/alert";
 
 type LoginProps = {
   switchToSignUp: () => void;
@@ -17,6 +18,11 @@ const Login = ({ switchToSignUp }: LoginProps) => {
   const [gmail, setGmail] = useState("");
   const [password, setPassword] = useState("");
   const [cheers, setCheers] = useState(false);
+  const [alerts, setAlerts] = useState<{
+    text: string;
+    type: "error" | "success" | "warning" | "info" | undefined;
+  }>({ text: "", type: "info" });
+  const [show, setShow] = useState(false);
 
   const supabase = createClient();
   const router = useRouter();
@@ -25,7 +31,8 @@ const Login = ({ switchToSignUp }: LoginProps) => {
     setCheers((prev) => !prev);
 
     if (!gmail || !password) {
-      alert("Please fill in all fields.");
+      setAlerts({ text: "Please fill in all fields.", type: "error" });
+      setShow(true);
       return;
     }
 
@@ -35,11 +42,13 @@ const Login = ({ switchToSignUp }: LoginProps) => {
     });
 
     if (error) {
-      alert(error.message);
+      setAlerts({ text: error.message, type: "error" });
+      setShow(true);
       return;
     }
 
-    alert("Login successful!");
+    setAlerts({ text: "Login successful!", type: "error" });
+    setShow(true);
 
     router.push("/");
     router.refresh();
@@ -47,6 +56,13 @@ const Login = ({ switchToSignUp }: LoginProps) => {
 
   return (
     <div className="w-full min-h-screen bg-linear-to-b from-dark-amethyst to-onyx text-bright-snow font-megrim flex">
+      {show && (
+        <Alert
+          text={alerts.text}
+          onClose={() => setShow(false)}
+          type={alerts.type}
+        />
+      )}
       {/* FORM */}
       <div className="w-1/2 min-h-screen flex items-center justify-center px-10">
         <div className="w-full max-w-xl">
