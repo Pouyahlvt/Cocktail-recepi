@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Plus, Trash2, Send } from "lucide-react";
+import { Plus, Trash2, SendHorizonalIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
 import gsap from "gsap";
 import { createClient } from "@/src/lib/supabase/client";
@@ -18,7 +18,7 @@ const SendCocktail = () => {
   const [user, setUser] = useState<User | null>(null);
 
   const [name, setName] = useState("");
-  const [ingredients, setIngredients] = useState<string[]>([""]);
+  const [ingredients, setIngredients] = useState<string[]>(["", ""]);
   const [steps, setSteps] = useState<string[]>([""]);
   //user log in check
   useEffect(() => {
@@ -100,14 +100,18 @@ const SendCocktail = () => {
     // UI only for now.
     // The API/database submission will be added later.
     console.log("Cocktail form:", {
+      name,
       ingredients,
       steps,
     });
+
+    setName("");
+    setSteps(["", ""]);
+    setIngredients([""]);
   };
 
   return (
     <main className="min-h-screen bg-onyx px-5 py-20 text-bright-snow sm:px-8 lg:px-12 font-megrim ">
-      <Navbar />
       <div className="mx-auto w-full    ">
         {/* Title */}
         <div className="mb-12">
@@ -127,46 +131,13 @@ const SendCocktail = () => {
 
         {/* Form */}
         <form ref={formRef} onSubmit={handleSubmit} className="space-y-10">
-          {/* User name */}
+          {/* Cocktail name */}
           <div>
             <Input
               about={"name"}
               placeholder={"Your name"}
               state={name}
-              setState={(e) => setName()}
-            />
-            <label
-              htmlFor="user-name"
-              className="mb-3 block text-sm text-bright-snow/70">
-              Your name
-            </label>
-
-            <input
-              id="user-name"
-              name="userName"
-              type="text"
-              placeholder="Enter your name"
-              required
-              className="h-14 w-full rounded-xl border border-bright-stext-bright-snow/10 bg-lnk-black/40 px-5 text-bright-snow 
-              outline-none transition-colors placeholder:text-bright-snow/25 focus:border-dark-amethyst"
-            />
-          </div>
-
-          {/* Cocktail name */}
-          <div>
-            <label
-              htmlFor="cocktail-name"
-              className="mb-3 block text-sm text-bright-snow/70">
-              Cocktail name
-            </label>
-
-            <input
-              id="cocktail-name"
-              name="cocktailName"
-              type="text"
-              placeholder="Enter cocktail name"
-              required
-              className="h-14 w-full rounded-xl border border-bright-stext-bright-snow/10 bg-lnk-black/40 px-5 text-bright-snow outline-none transition-colors placeholder:text-bright-snow/25 focus:border-dark-amethyst"
+              setState={setName}
             />
           </div>
 
@@ -183,37 +154,38 @@ const SendCocktail = () => {
               <button
                 type="button"
                 onClick={addIngredient}
-                className="flex shrink-0 items-center gap-2 rounded-lg border border-bright-stext-bright-snow/10 bg-lnk-black px-3 py-2 text-sm text-bright-snow transition-transform hover:scale-105">
-                <Plus size={16} />
-                Add
+                className="flex w-12 h-12 shrink-0 items-center gap-2 rounded-full border overflow-hidden relative
+                px-3 py-2 text-lg bg-bright-snow text-lnk-black transition-all duration-300 ease-out group
+                cursor-pointer hover:w-47 ">
+                <Plus size={30} />
+                <span className="absolute ml-0 text-nowrap opacity-0 group-hover:opacity-100 group-hover:ml-10 font-bold">
+                  Add Ingredient
+                </span>
               </button>
             </div>
 
-            <div className="space-y-3">
+            <div className="space-y-3 grid grid-cols-2">
               {ingredients.map((ingredient, index) => (
                 <div key={index} className="flex items-center gap-3">
-                  <span className="w-6 shrink-0 text-sm text-bright-snow/30">
-                    {index + 1}
-                  </span>
-
-                  <input
-                    type="text"
-                    value={ingredient}
+                  <Input
+                    about={`Ingredients ${index + 1}`}
+                    placeholder={`Ingredient ${index + 1}`}
+                    state={ingredient}
+                    setState={setName}
                     onChange={(event) =>
                       updateIngredient(index, event.target.value)
                     }
-                    placeholder={`Ingredient ${index + 1}`}
-                    required
-                    className="h-12 min-w-0 flex-1 rounded-xl border border-bright-stext-bright-snow/10 bg-lnk-black/40 px-4 text-sm text-bright-snow outline-none transition-colors placeholder:text-bright-snow/25 focus:border-dark-amethyst"
                   />
 
                   <button
                     type="button"
                     onClick={() => removeIngredient(index)}
                     disabled={ingredients.length === 1}
-                    className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-bright-stext-bright-snow/10 text-bright-snow/40 transition-all hover:border-dark-amethyst hover:text-bright-snow disabled:cursor-not-allowed disabled:opacity-20"
+                    className="flex mt-8 h-12 w-12 shrink-0 items-center justify-center rounded-full border border-bright-snow 
+                    text-lnk-black transition-all bg-bright-snow/70 hover:w-18 cursor-pointer 
+                    disabled:cursor-not-allowed disabled:opacity-20"
                     aria-label={`Remove ingredient ${index + 1}`}>
-                    <Trash2 size={17} />
+                    <Trash2 size={20} />
                   </button>
                 </div>
               ))}
@@ -233,19 +205,28 @@ const SendCocktail = () => {
               <button
                 type="button"
                 onClick={addStep}
-                className="flex shrink-0 items-center gap-2 rounded-lg border border-bright-stext-bright-snow/10 bg-lnk-black px-3 py-2 text-sm text-bright-snow transition-transform hover:scale-105">
-                <Plus size={16} />
+                className="flex w-12 h-12 shrink-0 items-center gap-2 rounded-full border overflow-hidden relative
+                px-3 py-2 text-lg bg-bright-snow text-lnk-black transition-all duration-300 ease-out group
+                cursor-pointer hover:w-35 ">
+                <Plus size={30} />
+                <span className="absolute ml-0 text-nowrap opacity-0 group-hover:opacity-100 group-hover:ml-10 font-bold">
+                  Add Step
+                </span>
               </button>
             </div>
 
             <div className="space-y-3">
               {steps.map((step, index) => (
                 <div key={index} className="flex items-start gap-3">
-                  <span className="mt-3 w-6 shrink-0 text-sm text-bright-snow/30">
-                    {index + 1}
-                  </span>
+                  <Input
+                    about={`Step ${index + 1}`}
+                    placeholder={`Step ${index + 1}`}
+                    state={step}
+                    setState={setName}
+                    onChange={(event) => updateStep(index, event.target.value)}
+                  />
 
-                  <textarea
+                  {/* <textarea
                     value={step}
                     onChange={(event) => updateStep(index, event.target.value)}
                     placeholder={`Step ${index + 1}`}
@@ -254,17 +235,17 @@ const SendCocktail = () => {
                     className="min-h-21 min-w-0 flex-1 resize-none rounded-xl border border-bright-snow text-bright-snow/10 
                     bg-lnk-black/40 px-4 py-3 text-sm leading-6 outline-none transition-colors placeholder:text-bright-snow/25 
                     focus:border-dark-amethyst"
-                  />
+                  /> */}
 
                   <button
                     type="button"
                     onClick={() => removeStep(index)}
-                    disabled={steps.length === 1}
-                    className="mt-0 flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-bright-snow 
-                    text-bright-snow/10 transition-all hover:border-dark-amethyst hover:text-bright-snow disabled:cursor-not-allowed 
-                    disabled:opacity-20"
-                    aria-label={`Remove step ${index + 1}`}>
-                    <Trash2 size={17} />
+                    disabled={step.length === 1}
+                    className="flex mt-8 h-12 w-12 shrink-0 items-center justify-center rounded-full border border-bright-snow 
+                    text-lnk-black transition-all bg-bright-snow/70  hover:w-18 cursor-pointer 
+                    disabled:cursor-not-allowed disabled:opacity-20"
+                    aria-label={`Remove ingredient ${index + 1}`}>
+                    <Trash2 size={20} />
                   </button>
                 </div>
               ))}
@@ -275,12 +256,13 @@ const SendCocktail = () => {
           <div className="pt-2">
             <button
               type="submit"
-              className="group flex h-14 w-full items-center justify-center gap-3 rounded-xl bg-bright-stext-bright-snow text-sm font-medium text-onyx transition-transform hover:scale-[1.01] active:scale-[0.99]">
-              <span>Send cocktail</span>
+              className="group flex h-20 w-[80%] mx-auto mt-20 items-center justify-center gap-3 rounded-xl 
+              bg-bright-snow text-lnk-black text-sm  cursor-pointer font-medium transition-transform hover:scale-[1.01] active:scale-[0.99]">
+              <span className="text-4xl">Send cocktail</span>
 
-              <Send
-                size={17}
-                className="transition-transform duration-300 group-hover:translate-x-1"
+              <SendHorizonalIcon
+                size={30}
+                className="transition-all duration-300 group-hover:translate-x-1  group-hover:ml-5"
               />
             </button>
           </div>

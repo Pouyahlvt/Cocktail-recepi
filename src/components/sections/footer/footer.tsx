@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <div className="w-full min-h-screen bg-onyx font-megrim text-bright-snow overflow-x-hidden relative">
+    <div className="w-full min-h-screen bg-onyx font-megrim text-bright-snow overflow-x-hidden relative border-t-2">
       <section className="w-full px-15 py-5">
         <h2 className="text-[11rem] font-black italic">C-RECPIES</h2>
       </section>
@@ -20,7 +20,7 @@ const Footer = () => {
         <Link
           className="group font-bold italic cursor-pointer border-b-2 pb-2  mx-auto"
           // create this section too , user can send cocktails details for me .
-          href={"pouyahalavat@gmail.com"}>
+          href={"/sendRecipe"}>
           YOUR COCKTAILS{" "}
           <span className="-ml-10 opacity-0  group-hover:ml-2 group-hover:opacity-100 transition-all duration-300 ease-out ">
             ▶

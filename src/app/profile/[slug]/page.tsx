@@ -1,6 +1,7 @@
 import { redirect } from "next/navigation";
 import { createClient } from "@/src/lib/supabase/server";
 import Profile from "@/src/components/profile/profile";
+import Footer from "@/src/components/sections/footer/footer";
 
 type ProfilePageProps = {
   params: Promise<{
@@ -71,7 +72,12 @@ const ProfilePage = async ({ params }: ProfilePageProps) => {
     favoriteCocktailIds,
   };
 
-  return <Profile profileData={profileData} />;
+  return (
+    <main>
+      <Profile profileData={profileData} />
+      <Footer />
+    </main>
+  );
 };
 
 export default ProfilePage;
