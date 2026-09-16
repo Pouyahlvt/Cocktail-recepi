@@ -3,7 +3,7 @@
 import { useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
-import { ArrowDown, Eye, Wine, Share2 } from "lucide-react";
+import { ArrowDown, Eye, Wine } from "lucide-react";
 import Image from "next/image";
 import RecipeSteps from "./cocktailsRecipe";
 import FavoriteButton from "../ui/favouriteButton";

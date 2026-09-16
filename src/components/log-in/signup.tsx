@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { useState } from "react";
@@ -6,6 +5,7 @@ import { createClient } from "@/src/lib/supabase/client";
 import Input_logIn from "./input";
 import Button_logIn from "./button_login";
 import { Martini, LucideWine } from "lucide-react";
+import Image from "next/image";
 import Alert from "../ui/alert";
 
 type SignUpProps = {
@@ -79,7 +79,9 @@ const SignUp = ({ switchToLogin }: SignUpProps) => {
       )}
       {/* IMAGE */}
       <div className="signup-image-section w-1/2 min-h-screen flex flex-col items-center justify-center p-10 order-1">
-        <img
+        <Image
+          width={500}
+          height={500}
           src="/hero-martini.png"
           alt="Cocktail"
           className="signup-img w-80 h-120 object-cover"

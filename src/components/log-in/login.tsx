@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { useState } from "react";
@@ -9,6 +8,7 @@ import Input_logIn from "./input";
 import Button_logIn from "./button_login";
 import { Martini, LucideWine } from "lucide-react";
 import Alert from "../ui/alert";
+import Image from "next/image";
 
 type LoginProps = {
   switchToSignUp: () => void;
@@ -108,7 +108,9 @@ const Login = ({ switchToSignUp }: LoginProps) => {
 
       {/* IMAGE */}
       <div className="login-image-section w-1/2 min-h-screen flex flex-col items-center justify-center p-10">
-        <img
+        <Image
+          width={500}
+          height={500}
           src="/hero-martini.png"
           alt="Cocktail"
           className="login-img w-80 h-120 object-cover"
