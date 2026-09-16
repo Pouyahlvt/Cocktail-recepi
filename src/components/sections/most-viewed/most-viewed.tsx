@@ -69,17 +69,21 @@ const Most_viewed = ({ cocktails }: Props) => {
 
   return (
     <div className="w-full min-h-screen bg-onyx font-megrim pt-20">
-      <div className="flex mb-30 mx-10 justify-between pt-10">
-        <h1 ref={headOneRef} className="text-6xl text-bright-snow ">
+      <div className="sm:flex mb-30 mx-10 justify-between pt-10 max-sm:mb-10">
+        <h1
+          ref={headOneRef}
+          className="text-6xl text-bright-snow max-sm:text-3xl ">
           This Week <br /> Most Viewd
         </h1>
-        <h2 ref={headTwoRef} className=" text-xl text-bright-snow/50 my-auto ">
+        <h2
+          ref={headTwoRef}
+          className=" text-xl text-bright-snow/50 my-auto max-sm:text-sm">
           Discover of cocktails have
           <br />
           more viewed in this week
         </h2>
       </div>
-      <div ref={galleryRef} className="w-full pb-20">
+      <div ref={galleryRef} className="w-full pb-20 ">
         <CocktailGalleryMV cocktails={cocktails} />
       </div>
     </div>

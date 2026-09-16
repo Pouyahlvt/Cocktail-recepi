@@ -110,7 +110,7 @@ const Navbar = () => {
           size={40}
         />
 
-        <h1 className="ml-5 text-4xl font-megrim font-bold text-bright-snow my-auto select-none ">
+        <h1 className="ml-5 text-4xl font-megrim font-bold text-bright-snow my-auto select-none max-sm:hidden">
           C - Recpie
         </h1>
       </div>
@@ -129,6 +129,7 @@ const Navbar = () => {
           transition-all duration-300 ease-in-out
           group
           overflow-hidden
+          max-sm:w-32
         ">
           <button
             onClick={handle_user}
@@ -142,6 +143,7 @@ const Navbar = () => {
           cursor-pointer
           transition-all duration-300 ease-in-out
           hover:bg-lnk-black hover:text-bright-snow
+          
         ">
             <UserIcon size={30} className="mx-auto" />
           </button>
@@ -155,10 +157,12 @@ const Navbar = () => {
           flex items-center
           cursor-pointer
           transition-all duration-300 ease-in-out
-           scale-0 opacity-0
+          scale-0 opacity-0
           group-hover:scale-100 group-hover:opacity-100 
           group-hover:mr-0 
           hover:bg-lnk-black hover:text-bright-snow
+          max-sm:opacity-100 max-sm:scale-100
+          max-sm:mr-0
         ">
             <LogOutIcon size={30} className="mx-auto" />
           </button>

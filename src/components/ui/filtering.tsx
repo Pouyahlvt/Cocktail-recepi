@@ -6,7 +6,7 @@ import { X } from "lucide-react";
 
 // what should we filter ,
 //
-const alcohols = ["Vodka", "Whisky", "Beer", "Teqila", "Wine"];
+const alcohols = ["Vodka", "Whisky", "Teqila", "Wine"];
 
 type Button = {
   onClick: () => void;
@@ -19,7 +19,8 @@ const Filter_buttons = ({ onClick, state, name }: Button) => {
     <button
       onClick={onClick}
       className={`mx-auto text-2xl mt-5 font-bold border-2 cursor-pointer py-2 px-6 rounded-full
-                    transition-all duration-300 ease-out hover:px-8 ${state === name ? "bg-bright-snow text-dark-amethyst" : ""}`}>
+      transition-all duration-300 ease-out hover:px-8 ${state === name ? "bg-bright-snow text-dark-amethyst" : ""}
+      max-sm:px-2 max-sm:hover:px-3 max-sm:text-sm`}>
       {name}
     </button>
   );
@@ -57,11 +58,11 @@ const Filtering = ({
 
   return (
     <div
-      className={`w-full h-fit mb-15 px-10 flex justify-center items-center text-bright-snow font-megrim`}>
+      className={`w-full h-fit mb-15 px-10 flex justify-center items-center text-bright-snow font-megrim max-sm:px-0`}>
       <section
-        className={`  bg-dark-amethyst shadow-2xl border border-bright-snow/50     
+        className={`bg-dark-amethyst shadow-2xl border border-bright-snow/50     
         transition-all duration-300 ease-in-out rounded-[40px] overflow-hidden relative
-        ${active ? "w-[95%] h-220 " : "w-[10%] h-20  hover:w-[12%] "}`}>
+        ${active ? "w-[95%] h-220 max-sm:w-full" : "w-[10%] max-sm:w-3/10 h-20  hover:w-[12%] max-sm:hover:w-35/100 "}`}>
         <button
           onClick={() => setActive(false)}
           className={`absolute w-12 h-12 right-5 top-5 rounded-full flex justify-center items-center hover:shadow-2xl 
@@ -81,8 +82,10 @@ const Filtering = ({
         {active && (
           <section className="w-full h-full mt-5 ">
             <section>
-              <h2 className="text-3xl mt-10  font-bold text-center">ALCOHOL</h2>
-              <div className="grid grid-cols-5 justify-center ">
+              <h2 className="text-3xl mt-10  font-bold text-center max-sm:text-xl">
+                ALCOHOL
+              </h2>
+              <div className="grid grid-cols-4 justify-center ">
                 {alcohols.map((alc, i) => (
                   <Filter_buttons
                     key={`${alc}-filter-${i}`}
@@ -96,7 +99,7 @@ const Filtering = ({
               </div>
             </section>
             <section>
-              <h2 className="text-3xl mt-15 font-bold text-center uppercase">
+              <h2 className="text-3xl mt-15 font-bold text-center uppercase max-sm:text-xl">
                 Difficultty Level
               </h2>
               <div className="grid grid-cols-3 justify-center ">
@@ -115,7 +118,7 @@ const Filtering = ({
               </div>
             </section>
             <section>
-              <h2 className="text-3xl mt-15 font-bold text-center uppercase">
+              <h2 className="text-3xl mt-15 font-bold text-center uppercase max-sm:text-xl">
                 Strong Grade [ ABV ]
               </h2>
               <div className="grid grid-cols-3 justify-center ">
@@ -132,7 +135,7 @@ const Filtering = ({
               </div>
             </section>
             <section>
-              <h2 className="text-3xl mt-15 font-bold text-center uppercase">
+              <h2 className="text-3xl mt-15 font-bold text-center uppercase max-sm:text-xl">
                 Sorted by
               </h2>
               <div className="grid grid-cols-3 justify-center ">
@@ -164,7 +167,8 @@ const Filtering = ({
               <button
                 onClick={filtering_handeller}
                 className="w-[50%] h-20 rounded-full text-3xl font-black mt-10 mx-auto border-2 cursor-pointer 
-              transition-all duration-300 ease-in-out hover:bg-bright-snow hover:text-dark-amethyst hover:w-[60%]">
+              transition-all duration-300 ease-in-out hover:bg-bright-snow hover:text-dark-amethyst hover:w-[60%]
+              max-sm:w-7/10 max-sm:hover:w-8/10 max-sm:h-18 max-sm:text-2xl">
                 SHOW RESULTS
               </button>
             </div>

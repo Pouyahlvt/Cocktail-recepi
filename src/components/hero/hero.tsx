@@ -96,15 +96,17 @@ const Hero = () => {
 
   return (
     <div className="hero flex h-screen w-full bg-onyx font-megrim text-bright-snow">
-      <div className="mt-50 w-[60%] pl-10">
-        <div className="w-full overflow-hidden">
-          <p className="first-text translate-y-full text-8xl font-bold">
+      <div className="mt-50 w-[60%] pl-10 z-10 max-sm:w-full max-sm:pl-5">
+        <div className="w-full overflow-hidden ">
+          <p className="first-text translate-y-full text-8xl font-bold max-sm:text-7xl">
             Cocktails
           </p>
         </div>
 
         <div className="w-full overflow-hidden">
-          <p className="sec-text translate-y-full text-8xl font-bold">Recpie</p>
+          <p className="sec-text translate-y-full text-8xl font-bold max-sm:text-7xl">
+            Recpie
+          </p>
         </div>
 
         <div className="w-full overflow-hidden mt-5">
@@ -114,13 +116,13 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="mt-30 w-[40%] overflow-hidden select-none">
+      <div className="mt-30 w-[40%] overflow-hidden select-none max-sm:absolute max-sm:w-full max-sm:opacity-10">
         <Image
           src={martini}
           alt="martini"
           width={300}
           height={200}
-          className="martini-image translate-x-[200%]"
+          className="martini-image translate-x-[200%] max-sm:mx-auto  "
         />
       </div>
     </div>

@@ -241,11 +241,11 @@ export default function CocktailsPage({
         className={`text-section mx-auto mb-26 max-w-7xl text-center ${
           just_cards ? "hidden" : ""
         }`}>
-        <h1 className="font-megrim text-7xl text-bright-snow">
+        <h1 className="font-megrim text-7xl text-bright-snow max-sm:text-5xl">
           COCKTAILS RECIPES
         </h1>
 
-        <p className="mt-4 text-base font-semibold text-bright-snow/60">
+        <p className="mt-4 text-base font-semibold text-bright-snow/60 max-sm:text-sm">
           Discover All recpie
         </p>
       </section>
@@ -265,13 +265,13 @@ export default function CocktailsPage({
         {/* Results */}
         <div
           ref={gridRef}
-          className={`grid gap-x-6 gap-y-10 ${
-            just_cards ? "grid-cols-3" : "grid-cols-4"
+          className={`grid gap-x-6 gap-y-10 max-sm:gap-x-2 ${
+            just_cards ? "grid-cols-3" : "grid-cols-4 max-sm:grid-cols-2"
           }`}>
           {currentCocktails.map((cocktail, index) => (
             <div
               key={`${cocktail.name}-${index}`}
-              className="h-95 w-full md:h-105">
+              className="h-95 w-full md:h-105 max-sm:h-80">
               <CocktailCard
                 id={cocktail.id}
                 name={cocktail.name}
@@ -354,14 +354,16 @@ function Pagination({
 
   return (
     <div
-      className={`mt-20 flex items-center justify-center gap-3 ${
+      className={`mt-20 flex items-center justify-center gap-3 max-sm:gap-1 ${
         pages.length === 1 ? "hidden" : ""
       }`}>
       {/* Previous */}
       <button
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
-        className="flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-bright-snow/5 text-2xl text-bright-snow shadow-bright-snow/50 transition duration-300 hover:bg-bright-snow/50 hover:shadow-2xl disabled:pointer-events-none disabled:opacity-30 active:scale-90">
+        className="flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-bright-snow/5 
+        text-2xl text-bright-snow shadow-bright-snow/50 transition duration-300 hover:bg-bright-snow/50 
+        hover:shadow-2xl disabled:pointer-events-none disabled:opacity-30 active:scale-90">
         ◀
       </button>
 
@@ -387,7 +389,7 @@ function Pagination({
             className={`flex h-10 w-8 cursor-pointer items-center justify-center rounded-full font-black transition ${
               active
                 ? "text-3xl text-bright-snow -translate-y-3"
-                : "text-bright-snow/60 hover:bg-bright-snow/10 hover:text-2xl hover:text-bright-snow hover:-translate-y-2"
+                : "text-bright-snow/60  hover:text-2xl hover:text-bright-snow hover:-translate-y-2"
             }`}>
             {pageNumber}
           </button>
