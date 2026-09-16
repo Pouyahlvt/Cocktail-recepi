@@ -4,7 +4,9 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <div className="w-full min-h-screen bg-onyx font-megrim text-bright-snow overflow-x-hidden relative border-t-2">
+    <div
+      className="w-full min-h-screen bg-onyx font-megrim text-bright-snow overflow-x-hidden relative border-t-2 
+    border-bright-snow/10">
       <section className="w-full px-15 py-5">
         <h2 className="text-[11rem] font-black italic">C-RECPIES</h2>
       </section>

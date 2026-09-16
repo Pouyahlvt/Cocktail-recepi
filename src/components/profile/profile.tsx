@@ -111,6 +111,7 @@ const Profile = ({ profileData }: Props) => {
           <Image
             src={"/hero-martini.png"}
             alt="Martinti"
+            loading="eager"
             width={200}
             height={500}
             className="martini-el w-fit h-full object-cover mx-auto"
