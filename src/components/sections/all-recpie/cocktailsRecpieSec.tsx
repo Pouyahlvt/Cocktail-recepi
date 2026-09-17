@@ -241,7 +241,7 @@ export default function CocktailsPage({
         className={`text-section mx-auto mb-26 max-w-7xl text-center ${
           just_cards ? "hidden" : ""
         }`}>
-        <h1 className="font-megrim text-7xl text-bright-snow max-sm:text-5xl">
+        <h1 className="font-megrim text-7xl text-bright-snow max-sm:text-3xl">
           COCKTAILS RECIPES
         </h1>
 
