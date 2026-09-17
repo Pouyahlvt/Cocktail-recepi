@@ -6,7 +6,6 @@ import { useRouter } from "next/navigation";
 import gsap from "gsap";
 import { createClient } from "@/src/lib/supabase/client";
 import { User } from "@supabase/supabase-js";
-import Navbar from "../navbar/navbar";
 import Input from "../ui/Inputs";
 
 const SendCocktail = () => {
@@ -156,7 +155,7 @@ const SendCocktail = () => {
                 onClick={addIngredient}
                 className="flex w-12 h-12 shrink-0 items-center gap-2 rounded-full border overflow-hidden relative
                 px-3 py-2 text-lg bg-bright-snow text-lnk-black transition-all duration-300 ease-out group
-                cursor-pointer hover:w-47 ">
+                cursor-pointer md:hover:w-47 ">
                 <Plus size={30} />
                 <span className="absolute ml-0 text-nowrap opacity-0 group-hover:opacity-100 group-hover:ml-10 font-bold">
                   Add Ingredient
@@ -182,7 +181,7 @@ const SendCocktail = () => {
                     onClick={() => removeIngredient(index)}
                     disabled={ingredients.length === 1}
                     className="flex mt-8 h-12 w-12 shrink-0 items-center justify-center rounded-full border border-bright-snow 
-                    text-lnk-black transition-all bg-bright-snow/70 hover:w-18 cursor-pointer 
+                    text-lnk-black transition-all bg-bright-snow/70 md:hover:w-18 cursor-pointer 
                     disabled:cursor-not-allowed disabled:opacity-20"
                     aria-label={`Remove ingredient ${index + 1}`}>
                     <Trash2 size={20} />
@@ -207,7 +206,7 @@ const SendCocktail = () => {
                 onClick={addStep}
                 className="flex w-12 h-12 shrink-0 items-center gap-2 rounded-full border overflow-hidden relative
                 px-3 py-2 text-lg bg-bright-snow text-lnk-black transition-all duration-300 ease-out group
-                cursor-pointer hover:w-35 ">
+                cursor-pointer md:hover:w-35 ">
                 <Plus size={30} />
                 <span className="absolute ml-0 text-nowrap opacity-0 group-hover:opacity-100 group-hover:ml-10 font-bold">
                   Add Step
@@ -242,7 +241,7 @@ const SendCocktail = () => {
                     onClick={() => removeStep(index)}
                     disabled={step.length === 1}
                     className="flex mt-8 h-12 w-12 shrink-0 items-center justify-center rounded-full border border-bright-snow 
-                    text-lnk-black transition-all bg-bright-snow/70  hover:w-18 cursor-pointer 
+                    text-lnk-black transition-all bg-bright-snow/70  md:hover:w-18 cursor-pointer 
                     disabled:cursor-not-allowed disabled:opacity-20"
                     aria-label={`Remove ingredient ${index + 1}`}>
                     <Trash2 size={20} />
@@ -258,11 +257,11 @@ const SendCocktail = () => {
               type="submit"
               className="group flex h-20 w-[80%] mx-auto mt-20 items-center justify-center gap-3 rounded-xl 
               bg-bright-snow text-lnk-black text-sm  cursor-pointer font-medium transition-transform hover:scale-[1.01] active:scale-[0.99]">
-              <span className="text-4xl">Send cocktail</span>
+              <span className="text-4xl max-md:text-2xl ">Send cocktail</span>
 
               <SendHorizonalIcon
                 size={30}
-                className="transition-all duration-300 group-hover:translate-x-1  group-hover:ml-5"
+                className="transition-all duration-300 group-hover:translate-x-1  group-hover:ml-5 "
               />
             </button>
           </div>

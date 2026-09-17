@@ -92,6 +92,7 @@ const CocktailGalleryMV = ({ cocktails }: Props) => {
   const galleryRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
   const progressRef = useRef<HTMLDivElement>(null);
+  const hasMoved = useRef(false);
 
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -228,21 +229,25 @@ const CocktailGalleryMV = ({ cocktails }: Props) => {
   const handlePointerDown = (event: React.PointerEvent) => {
     const target = event.target as HTMLElement;
 
-    // Don't start gallery dragging when clicking a button
+    // Don't start gallery interaction from buttons
     if (target.closest("button")) {
       return;
     }
 
-    isDragging.current = true;
     dragStartX.current = event.clientX;
-
-    (event.currentTarget as HTMLElement).setPointerCapture(event.pointerId);
+    isDragging.current = true;
+    hasMoved.current = false;
   };
 
   const handlePointerMove = (event: React.PointerEvent) => {
     if (!isDragging.current) return;
 
     const distance = event.clientX - dragStartX.current;
+
+    // User is actually dragging
+    if (Math.abs(distance) > 10) {
+      hasMoved.current = true;
+    }
 
     if (Math.abs(distance) > 70) {
       if (distance < 0) {
