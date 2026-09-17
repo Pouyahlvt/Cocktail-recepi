@@ -8,6 +8,7 @@ import Image from "next/image";
 import RecipeSteps from "./cocktailsRecipe";
 import FavoriteButton from "../ui/favouriteButton";
 import ShareButton from "../ui/sharebtn";
+import Footer from "../sections/footer/footer";
 
 gsap.registerPlugin(ScrollToPlugin);
 
@@ -302,6 +303,7 @@ const CocktailRecipe = (cocktail: Cocktail) => {
       <section ref={recipeRef}>
         <RecipeSteps name={name} recipe={recipe} />
       </section>
+      <Footer />
     </main>
   );
 };

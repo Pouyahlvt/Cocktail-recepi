@@ -266,7 +266,9 @@ export default function CocktailsPage({
         <div
           ref={gridRef}
           className={`grid gap-x-6 gap-y-10 max-sm:gap-x-2 ${
-            just_cards ? "grid-cols-3" : "grid-cols-4 max-sm:grid-cols-2"
+            just_cards
+              ? "grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1"
+              : "grid-cols-4 max-sm:grid-cols-2"
           }`}>
           {currentCocktails.map((cocktail, index) => (
             <div

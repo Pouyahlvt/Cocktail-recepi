@@ -68,21 +68,21 @@ const Profile = ({ profileData }: Props) => {
       <section
         className="user-sec w-full h-screen flex text-bright-snow font-megrim items-center 
       bg-linear-to-b from-lnk-black to-onyx">
-        <section className="name-el w-[60%] h-screen pl-25 pt-40">
-          <h2 className="text-8xl font-black tracking-tighter">
+        <section className="name-el w-[60%] h-screen pl-25 pt-40 max-md:w-full max-md:z-10 max-md:px-4">
+          <h2 className="text-8xl font-black tracking-tighter max-md:text-6xl max-md:mb-5">
             {profileData.name}
           </h2>
-          <div className="flex">
-            <div className="mt-15">
-              <h2 className="details-el text-4xl font-bold opacity-50">
+          <div className="flex max-md:backdrop-blur-sm rounded-2xl max-md:bg-bright-snow/5 max-md:p-4">
+            <div className="mt-15 max-md:mt-5">
+              <h2 className="details-el text-4xl font-bold opacity-50 max-md:text-2xl">
                 Favourites
               </h2>
               <p className="details-el text-5xl font-black mt-5">
                 {profileData.favoriteCocktailIds?.length}
               </p>
             </div>
-            <div className="mt-15 ml-10 ">
-              <h2 className="details-el text-4xl font-bold opacity-50">
+            <div className="mt-15 ml-10 max-md:mt-5">
+              <h2 className="details-el text-4xl font-bold opacity-50 max-md:text-2xl">
                 Created
               </h2>
               <p className="details-el text-3xl font-black mt-5">
@@ -90,8 +90,14 @@ const Profile = ({ profileData }: Props) => {
               </p>
             </div>
           </div>
+          <div className="flex mt-5 ">
+            <p className="text-bright-snow/60 text-2xl -mb-5 max-md:text-bright-snow">
+              {profileData.email}
+            </p>
+          </div>
           <div
             className="details-el w-1/3 ml-auto mt-30 h-30 
+            max-md:hidden
             animate-[fade-out_linear_both]
             [animation-timeline:scroll(root)]
             [animation-range:0_200px]
@@ -107,7 +113,7 @@ const Profile = ({ profileData }: Props) => {
             <Mouse className="mx-auto animate-pulse" />
           </div>
         </section>
-        <div className="flex shrink-0 w-[40%] h-[60%]  mt-10 overflow-hidden">
+        <div className="flex shrink-0 w-[40%] h-[60%]  mt-10 overflow-hidden max-md:w-full max-md:absolute max-md:opacity-10">
           <Image
             src={"/hero-martini.png"}
             alt="Martinti"
@@ -120,8 +126,10 @@ const Profile = ({ profileData }: Props) => {
       </section>
       <section className="Favourite-sec w-full min-h-screen bg-onyx text-bright-snow font-megrim pt-30 py-15">
         <div>
-          <h1 className="text-6xl text-center mb-2">Favourite Cocktails</h1>
-          <p className="text-center text-lg opacity-50">
+          <h1 className="text-6xl text-center mb-2 max-sm:text-4xl">
+            Favourite Cocktails
+          </h1>
+          <p className="text-center text-lg opacity-50 max-sm:text-sm">
             Discover cocktails you like or will be like
           </p>
         </div>

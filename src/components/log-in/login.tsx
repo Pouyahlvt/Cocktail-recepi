@@ -64,9 +64,9 @@ const Login = ({ switchToSignUp }: LoginProps) => {
         />
       )}
       {/* FORM */}
-      <div className="w-1/2 min-h-screen flex items-center justify-center px-10">
-        <div className="w-full max-w-xl">
-          <h1 className="login-h1 text-5xl font-black flex justify-center items-center mb-12">
+      <div className="w-1/2 min-h-screen flex  justify-center px-10 max-md:w-full pt-15">
+        <div className="w-full flex-col flex max-w-xl pb-30">
+          <h1 className="login-h1 text-5xl font-black flex justify-center items-center mb-12 max-lg:text-5xl ">
             Log In
             <Martini
               size={50}
@@ -82,7 +82,7 @@ const Login = ({ switchToSignUp }: LoginProps) => {
             />
           </h1>
 
-          <div className="login-el mt-5">
+          <div className="login-el mt-auto">
             <Input_logIn
               about="Gmail"
               placeholder="Write your Gmail"
@@ -91,7 +91,7 @@ const Login = ({ switchToSignUp }: LoginProps) => {
             />
           </div>
 
-          <div className="login-el mt-5">
+          <div className="login-el ">
             <Input_logIn
               about="Password"
               placeholder="Write your Password"
@@ -103,17 +103,24 @@ const Login = ({ switchToSignUp }: LoginProps) => {
           <div className="login-el mt-8">
             <Button_logIn text="Log In" click_handeler={handle_click} />
           </div>
+          <button
+            type="button"
+            onClick={switchToSignUp}
+            className="switch-button mt-2 text-lg cursor-pointer hover:scale-105 transition-transform md:hidden 
+            max-md:w-full">
+            Don&apos;t have an account? Sign Up
+          </button>
         </div>
       </div>
 
       {/* IMAGE */}
-      <div className="login-image-section w-1/2 min-h-screen flex flex-col items-center justify-center p-10">
+      <div className="login-image-section w-1/2 min-h-screen flex flex-col items-center justify-center p-10 max-md:hidden">
         <Image
           width={500}
           height={500}
           src="/hero-martini.png"
           alt="Cocktail"
-          className="login-img w-80 h-120 object-cover"
+          className="login-img w-80 h-120 object-cover max-md:hidden"
         />
 
         <button

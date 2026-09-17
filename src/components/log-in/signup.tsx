@@ -69,7 +69,7 @@ const SignUp = ({ switchToLogin }: SignUpProps) => {
   };
 
   return (
-    <div className="w-full min-h-screen bg-linear-to-b from-dark-amethyst to-onyx text-bright-snow font-megrim flex">
+    <div className="w-full h-screen bg-linear-to-b from-dark-amethyst to-onyx text-bright-snow font-megrim flex">
       {show && (
         <Alert
           text={alerts.text}
@@ -78,7 +78,7 @@ const SignUp = ({ switchToLogin }: SignUpProps) => {
         />
       )}
       {/* IMAGE */}
-      <div className="signup-image-section w-1/2 min-h-screen flex flex-col items-center justify-center p-10 order-1">
+      <div className="signup-image-section w-1/2 min-h-screen flex flex-col items-center justify-center p-10 order-1 max-md:hidden">
         <Image
           width={500}
           height={500}
@@ -96,9 +96,9 @@ const SignUp = ({ switchToLogin }: SignUpProps) => {
       </div>
 
       {/* FORM */}
-      <div className="signup-form w-1/2 min-h-screen flex items-center justify-center px-10 order-2">
-        <div className="w-full max-w-xl">
-          <h1 className="signup-h1 text-5xl font-black flex justify-center items-center mb-12">
+      <div className="signup-form w-1/2 h-screen flex mt-15 justify-center px-10 order-2 max-md:w-full">
+        <div className="w-full max-w-xl flex flex-col pb-50">
+          <h1 className="signup-h1 text-5xl font-black flex justify-center items-center mb-12 max-lg:text-4xl">
             Sign Up
             <Martini
               size={50}
@@ -114,7 +114,7 @@ const SignUp = ({ switchToLogin }: SignUpProps) => {
             />
           </h1>
 
-          <div className="signup-el">
+          <div className="signup-el mt-auto">
             <Input_logIn
               about="Name"
               placeholder="Write your name"
@@ -123,7 +123,7 @@ const SignUp = ({ switchToLogin }: SignUpProps) => {
             />
           </div>
 
-          <div className="signup-el mt-5">
+          <div className="signup-el ">
             <Input_logIn
               about="Gmail"
               placeholder="Write your Gmail"
@@ -132,7 +132,7 @@ const SignUp = ({ switchToLogin }: SignUpProps) => {
             />
           </div>
 
-          <div className="signup-el mt-5">
+          <div className="signup-el">
             <Input_logIn
               about="Password"
               placeholder="Write your Password"
@@ -144,6 +144,12 @@ const SignUp = ({ switchToLogin }: SignUpProps) => {
           <div className="signup-el mt-8">
             <Button_logIn text="Sign Up" click_handeler={handle_click} />
           </div>
+          <button
+            type="button"
+            onClick={switchToLogin}
+            className="switch-button mt-2 text-lg cursor-pointer hover:scale-105 transition-transform max-md:w-full">
+            Already have an account? Log In
+          </button>
         </div>
       </div>
     </div>

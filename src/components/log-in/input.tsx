@@ -45,11 +45,13 @@ const Input_logIn = ({ about, placeholder, state, setState }: Props) => {
     <div className="w-full flex justify-center mt-5">
       <div
         className={`${
-          active ? "w-[72%] -translate-y-2" : "w-[70%]"
+          active
+            ? "w-[72%] max-md:w-[82%] -translate-y-2"
+            : "w-[70%] max-md:w-[82%]"
         } transition-all duration-300 ease-out`}>
         {/* LABEL */}
         <p
-          className={`text-2xl font-black transition-all duration-300 ease-out ${
+          className={`text-2xl font-black transition-all duration-300 ease-out max-md:text-xl ${
             !active ? "opacity-0 -translate-x-10" : ""
           }`}>
           {about} <span>:</span>
@@ -64,7 +66,7 @@ const Input_logIn = ({ about, placeholder, state, setState }: Props) => {
             value={state}
             placeholder={placeholder}
             onChange={(e) => setState(e.target.value)}
-            className={`w-full py-1 text-2xl outline-0 px-4 font-bold ${
+            className={`w-full py-1 text-2xl outline-0 px-4 font-bold max-lg:text-xl max-sm:text-lg ${
               isPassword ? "pr-14x" : ""
             }`}
           />
