@@ -135,17 +135,19 @@ const CocktailRecipe = (cocktail: Cocktail) => {
 
           <div className="order-2 lg:order-1">
             {/* Small label */}
-            <div className="recipe-label mb-6 flex items-center gap-3">
-              <span className="h-px w-8 bg-bright-snow/30 text-bright-snow/30" />
-              <span className="text-xs uppercase tracking-[0.3em] text-bright-snow/45">
-                Cocktail Recipe
-              </span>
-            </div>
+            <div className="max-lg:hidden">
+              <div className="recipe-label mb-6 flex items-center gap-3">
+                <span className="h-px w-8 bg-bright-snow/30 text-bright-snow/30" />
+                <span className="text-xs uppercase tracking-[0.3em] text-bright-snow/45">
+                  Cocktail Recipe
+                </span>
+              </div>
 
-            {/* Name */}
-            <h1 className="cocktail-name max-w-xl text-nowrap text-6xl font-medium tracking-[-0.04em] sm:text-7xl lg:text-[6.5rem] lg:leading-[0.9]">
-              {name}
-            </h1>
+              {/* Name */}
+              <h1 className="cocktail-name max-w-xl text-nowrap text-6xl font-medium tracking-[-0.04em] sm:text-7xl lg:text-[6.5rem] lg:leading-[0.9]">
+                {name}
+              </h1>
+            </div>
 
             {/* Type */}
             <div className="cocktail-meta mt-8 flex items-center gap-3">
@@ -236,16 +238,29 @@ const CocktailRecipe = (cocktail: Cocktail) => {
           {/* ================= RIGHT ================= */}
 
           <div className="order-1 lg:order-2 overflow-hidden ">
+            <div className="w-full  lg:hidden  mt-20">
+              <div className="recipe-label mb-6 flex items-center gap-3">
+                <span className="h-px w-8 bg-bright-snow/30 text-bright-snow/30" />
+                <span className="text-xs uppercase tracking-[0.3em] text-bright-snow/45">
+                  Cocktail Recipe
+                </span>
+              </div>
+
+              {/* Name */}
+              <h1 className="cocktail-name max-w-xl text-nowrap text-6xl font-medium tracking-[-0.04em] sm:text-7xl lg:text-[6.5rem] lg:leading-[0.9]">
+                {name}
+              </h1>
+            </div>
             <div className="relative mx-auto ">
               {/* Image */}
               <div className="cocktail-image relative overflow-hidden rounded-4xl h-[90vh] ">
-                <div className="w-full h-[80%]  mt-10 overflow-hidden ">
+                <div className="w-full h-[80%]  mt-10 overflow-hidden select-none">
                   <Image
                     width={500}
                     height={500}
                     src={image}
                     alt={name}
-                    className="w-fit mx-auto h-full object-cover"
+                    className="w-fit mx-auto h-full object-cover select-none"
                     onError={(e) => {
                       e.currentTarget.srcset = "";
                       e.currentTarget.src = "/hero-martini.png";
@@ -255,18 +270,17 @@ const CocktailRecipe = (cocktail: Cocktail) => {
               </div>
 
               {/* Ingredients glass card */}
-              <div className="ingredient-card absolute bottom-10  right-0 flex ">
-                <div
-                  className="flex w-full ml-auto gap-2  rounded-t-3xl  bg-bright-snow/0  
-                  p-2 backdrop-blur-2xl overflow-hidden overflow-x-auto ">
-                  {ingredients.map((topping, index) => (
-                    <div
-                      key={`${topping}-${index}`}
-                      className="w-25 aspect-square rounded-2xl bg-dark-amethyst/40 py-2 text-sm  
-                      text-bright-snow text-center tracking-tighter ">
-                      {topping}
-                    </div>
-                  ))}
+              <div className="ingredient-card absolute bottom-10 right-0 flex w-full ">
+                <div className="flex max-w-9/10 ml-auto gap-2 rounded-t-3xl bg-bright-snow/0 backdrop-blur-2xl overflow-x-scroll">
+                  <div className="flex gap-2 px-2 py-2">
+                    {ingredients.map((topping, index) => (
+                      <div
+                        key={`${topping}-${index}`}
+                        className="w-25 aspect-square rounded-2xl bg-dark-amethyst/40 py-2 text-sm text-bright-snow text-center tracking-tighter shrink-0">
+                        {topping}
+                      </div>
+                    ))}
+                  </div>
                 </div>
 
                 <div className="w-7 h-29 rounded-xl ml-2 bg-bright-snow/60 relative overflow-hidden select-none">

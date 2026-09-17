@@ -228,12 +228,14 @@ const RecipeSteps = ({ name, recipe }: RecipeStepsProps) => {
       <div className="mt-20 pb-30 w-full  justify-center flex ">
         <div className="group cursor-wait">
           <div className="flex  justify-center ">
-            <span className="uppercase font-black text-6xl">
+            <span className="uppercase font-black text-6xl max-sm:text-2xl">
               Your {name} is Ready
             </span>
           </div>
           <div className="flex justify-center ">
-            <span className="text-5xl font-bold mt-10 uppercase">Cheers</span>
+            <span className="text-5xl font-bold mt-10 uppercase max-sm:text-2xl">
+              Cheers
+            </span>
             <div className="flex mt-8 ml-20 w-30">
               <Martini
                 size={60}
