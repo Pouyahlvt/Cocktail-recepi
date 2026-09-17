@@ -142,7 +142,7 @@ const Alert: React.FC<AlertProps> = ({
     <div
       ref={alertRef}
       onClick={closeAlert}
-      className="absolute flex z-50 w-fit mx-auto mt-5 inset-0 h-fit bg-muted-teal/90 rounded-full items-center cursor-pointer
+      className="fixed flex z-50 w-fit mx-auto mt-5 inset-0 h-fit bg-linear-to-r from-lnk-black to-dark-amethyst rounded-full items-center cursor-pointer
       scale-80 -translate-y-full shadow-2xl/70 max-sm:w-[80%] font-megrim">
       {text.length > 2 && (
         <>

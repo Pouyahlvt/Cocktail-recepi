@@ -50,7 +50,7 @@ const Footer = () => {
             <div
               key={`text-two-${i}`}
               className=" mx-auto flex overflow-hidden justify-center w-1/7 h-fit">
-              <span className="words text  font-black translate-x-[300%]">
+              <span className="words text  font-black translate-x-[400%]">
                 {word}
               </span>
             </div>

@@ -7,13 +7,19 @@ import gsap from "gsap";
 import { createClient } from "@/src/lib/supabase/client";
 import { User } from "@supabase/supabase-js";
 import Input from "../ui/Inputs";
+import Alert from "../ui/alert";
 
 const SendCocktail = () => {
   const router = useRouter();
   const supabase = createClient();
 
+  const [alerts, setAlerts] = useState<{
+    text: string;
+    type: "error" | "success" | "warning" | "info" | undefined;
+  }>({ text: "", type: "info" });
+  const [show, setShow] = useState(false);
+
   const formRef = useRef<HTMLFormElement>(null);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [user, setUser] = useState<User | null>(null);
 
   const [name, setName] = useState("");
@@ -36,6 +42,22 @@ const SendCocktail = () => {
     checkLogin();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  async function sendNotification() {
+    const response = await fetch("/api/send", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: name,
+        gmail: user?.email ?? "unknown",
+        ingredients: ingredients.filter((i) => i.trim() !== ""),
+        recipe: steps.filter((s) => s.trim() !== ""),
+      }),
+    });
+
+    const result = await response.json();
+    console.log(result);
+  }
 
   useEffect(() => {
     if (formRef.current) {
@@ -98,19 +120,34 @@ const SendCocktail = () => {
 
     // UI only for now.
     // The API/database submission will be added later.
-    console.log("Cocktail form:", {
-      name,
-      ingredients,
-      steps,
-    });
+    if (
+      name.length === 0 ||
+      ingredients[0].length === 0 ||
+      steps[0].length === 0
+    ) {
+      setAlerts({ text: "fill all filed. (at least)", type: "error" });
+      setShow(true);
+    } else {
+      sendNotification();
 
-    setName("");
-    setSteps(["", ""]);
-    setIngredients([""]);
+      setAlerts({ text: "Your cocktails has been sent .", type: "success" });
+      setShow(true);
+
+      setName("");
+      setSteps(["", ""]);
+      setIngredients([""]);
+    }
   };
 
   return (
     <main className="min-h-screen bg-onyx px-5 py-20 text-bright-snow sm:px-8 lg:px-12 font-megrim ">
+      {show && (
+        <Alert
+          text={alerts.text}
+          onClose={() => setShow(false)}
+          type={alerts.type}
+        />
+      )}
       <div className="mx-auto w-full    ">
         {/* Title */}
         <div className="mb-12">
