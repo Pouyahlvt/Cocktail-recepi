@@ -6,7 +6,7 @@ import { X } from "lucide-react";
 
 // what should we filter ,
 //
-const alcohols = ["Vodka", "Whisky", "Teqila", "Wine"];
+const alcohols = ["Vodka", "Whiskey", "Tequila", "Wine"];
 
 type Button = {
   onClick: () => void;
