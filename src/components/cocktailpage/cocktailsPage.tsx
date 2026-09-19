@@ -259,7 +259,7 @@ const CocktailRecipe = (cocktail: Cocktail) => {
                   <Image
                     width={500}
                     height={500}
-                    src={image}
+                    src={`${image.slice(0, -4).toLowerCase()}.webp`}
                     alt={name}
                     className="w-fit mx-auto h-full object-cover select-none"
                     onError={(e) => {
