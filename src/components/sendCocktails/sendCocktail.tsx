@@ -292,7 +292,7 @@ const SendCocktail = () => {
           <div className="pt-2">
             <button
               type="submit"
-              className="group flex h-20 w-[80%] mx-auto mt-20 items-center justify-center gap-3 rounded-xl 
+              className="group flex h-20 w-[80%] mx-auto mt-20 items-center justify-center gap-3 rounded-4xl 
               bg-bright-snow text-lnk-black text-sm  cursor-pointer font-medium transition-transform hover:scale-[1.01] active:scale-[0.99]">
               <span className="text-4xl max-md:text-2xl ">Send cocktail</span>
 
