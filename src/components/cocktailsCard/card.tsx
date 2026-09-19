@@ -2,7 +2,7 @@
 
 import FavoriteButton from "@/src/components/ui/favouriteButton";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 interface CocktailCardProps {
   id: number;
   name: string;
@@ -22,44 +22,38 @@ const CocktailCard = ({
   difficulty,
   favorites,
 }: CocktailCardProps) => {
-  const router = useRouter();
-
-  const handleCardClick = () => {
-    router.push(`/cocktails/${name}`);
-  };
-
   return (
-    <div
-      onClick={handleCardClick}
-      className="group relative h-full w-full overflow-hidden rounded-3xl bg-linear-to-br 
-    from-lnk-black to-dark-amethyst cursor-pointer">
-      {/* Cocktail Image */}
+    <Link href={`/cocktails/${name}`}>
       <div
-        className="
+        className="group relative h-full w-full overflow-hidden rounded-3xl bg-linear-to-br 
+    from-lnk-black to-dark-amethyst cursor-pointer">
+        {/* Cocktail Image */}
+        <div
+          className="
           absolute inset-0
           flex items-center justify-center
           transition-transform duration-700 ease-out
           group-hover:-translate-y-8
           group-hover:scale-[0.82]
         ">
-        <Image
-          src={image}
-          alt={name}
-          fill
-          loading="eager"
-          draggable={false}
-          className="object-contain p-5"
-          sizes="280px"
-          onError={(e) => {
-            e.currentTarget.srcset = "";
-            e.currentTarget.src = "hero-martini.png";
-          }}
-        />
-      </div>
+          <Image
+            src={image}
+            alt={name}
+            fill
+            loading="eager"
+            draggable={false}
+            className="object-contain p-5"
+            sizes="280px"
+            onError={(e) => {
+              e.currentTarget.srcset = "";
+              e.currentTarget.src = "hero-martini.png";
+            }}
+          />
+        </div>
 
-      {/* Dark Gradient */}
-      <div
-        className="
+        {/* Dark Gradient */}
+        <div
+          className="
           absolute inset-x-0 bottom-0 h-[52%]
           bg-linear-to-t from-black/80 via-black/50 to-transparent
           transition-all duration-700 ease-out
@@ -67,34 +61,36 @@ const CocktailCard = ({
           group-hover:from-black/95
           group-hover:via-black/75
         "
-      />
+        />
 
-      {/* Main Content */}
-      <div
-        className="
+        {/* Main Content */}
+        <div
+          className="
           absolute bottom-0 left-0 right-0
           translate-y-0 p-6
           transition-transform duration-700 ease-out
           group-hover:-translate-y-18
         ">
-        <p className="mb-2 text-[9px] uppercase tracking-[0.3em] text-bright-snow/50">
-          {type}
-        </p>
+          <p className="mb-2 text-[9px] uppercase tracking-[0.3em] text-bright-snow/50">
+            {type}
+          </p>
 
-        <div className="flex items-end justify-between gap-3">
-          <h3 className="text-2xl font-medium tracking-tight text-bright-snow">
-            {name}
-          </h3>
+          <div className="flex items-end justify-between gap-3">
+            <h3 className="text-2xl font-medium tracking-tight text-bright-snow">
+              {name}
+            </h3>
 
-          {/* Favorite */}
+            {/* Favorite */}
 
-          <FavoriteButton cocktailId={id} favorites={favorites} />
+            <div className="z-30">
+              <FavoriteButton cocktailId={id} favorites={favorites} />
+            </div>
+          </div>
         </div>
-      </div>
 
-      {/* Extra Information - Appears From Bottom */}
-      <div
-        className="
+        {/* Extra Information - Appears From Bottom */}
+        <div
+          className="
           absolute bottom-0 left-0 right-0
           flex items-center justify-between
           px-6 pb-5
@@ -104,27 +100,28 @@ const CocktailCard = ({
           group-hover:translate-y-0
           group-hover:opacity-100
         ">
-        <div>
-          <p className="mb-1 text-[8px] uppercase tracking-[0.25em] text-bright-snow/35">
-            Alcohol
-          </p>
+          <div>
+            <p className="mb-1 text-[8px] uppercase tracking-[0.25em] text-bright-snow/35">
+              Alcohol
+            </p>
 
-          <p className="text-xs uppercase tracking-[0.12em] text-bright-snow/80">
-            {alcohol}
-          </p>
-        </div>
+            <p className="text-xs uppercase tracking-[0.12em] text-bright-snow/80">
+              {alcohol}
+            </p>
+          </div>
 
-        <div className="text-right">
-          <p className="mb-1 text-[8px] uppercase tracking-[0.25em] text-bright-snow/35">
-            Difficulty
-          </p>
+          <div className="text-right">
+            <p className="mb-1 text-[8px] uppercase tracking-[0.25em] text-bright-snow/35">
+              Difficulty
+            </p>
 
-          <p className="text-xs uppercase tracking-[0.12em] text-bright-snow/80">
-            {difficulty}
-          </p>
+            <p className="text-xs uppercase tracking-[0.12em] text-bright-snow/80">
+              {difficulty}
+            </p>
+          </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

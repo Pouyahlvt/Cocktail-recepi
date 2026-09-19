@@ -46,13 +46,15 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="mt-30 w-[40%] overflow-hidden select-none max-sm:absolute max-sm:w-full max-sm:opacity-10">
+      <div className="mt-30 w-[40%] overflow-hidden select-none max-sm:absolute max-sm:w-full max-sm:opacity-10 justify-center items-center">
         <Image
           src={martini}
           alt="martini"
-          width={300}
-          height={200}
-          className="martini-image translate-x-[200%] max-sm:mx-auto  "
+          loading="eager"
+          width={500}
+          height={500}
+          style={{ height: "auto" }}
+          className="martini-image w-6/10 translate-x-[200%] mx-auto   "
         />
       </div>
     </div>
