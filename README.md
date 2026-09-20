@@ -180,18 +180,6 @@ Components are kept modular and reusable, with an emphasis on avoiding unnecessa
 
 ## 📦 Installation
 
-Clone the repository:
-
-```bash
-git clone <your-repository-url>
-```
-
-Move into the project:
-
-```bash
-cd <project-folder>
-```
-
 Install dependencies:
 
 ```bash
@@ -325,10 +313,6 @@ Possible future improvements include:
 ### Profile Page
 
 ![Profile Page](./assets/profile-me.png)
-
-### Cocktail Details
-
-![Cocktail Page](./assets/cocktails-page.png)
 
 ### Send cocktails
 
