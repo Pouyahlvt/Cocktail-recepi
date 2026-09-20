@@ -46,12 +46,12 @@ const Input_logIn = ({ about, placeholder, state, setState }: Props) => {
       <div
         className={`${
           active
-            ? "w-[72%] max-md:w-[82%] -translate-y-2"
-            : "w-[70%] max-md:w-[82%]"
+            ? "w-[72%] max-md:w-[95%] -translate-y-2"
+            : "w-[70%] max-md:w-[92%]"
         } transition-all duration-300 ease-out`}>
         {/* LABEL */}
         <p
-          className={`text-2xl font-black transition-all duration-300 ease-out max-md:text-xl ${
+          className={`text-2xl font-black transition-all duration-300 ease-out max-md:text-xl max-sm:text-lg ${
             !active ? "opacity-0 -translate-x-10" : ""
           }`}>
           {about} <span>:</span>
@@ -66,7 +66,7 @@ const Input_logIn = ({ about, placeholder, state, setState }: Props) => {
             value={state}
             placeholder={placeholder}
             onChange={(e) => setState(e.target.value)}
-            className={`w-full py-1 text-2xl outline-0 px-4 font-bold max-lg:text-xl max-sm:text-lg ${
+            className={`w-full py-1 text-2xl outline-0 px-4 font-bold max-lg:text-xl max-sm:text-[15px] ${
               isPassword ? "pr-14x" : ""
             }`}
           />
@@ -79,7 +79,11 @@ const Input_logIn = ({ about, placeholder, state, setState }: Props) => {
               onClick={togglePassword}
               className="password-icon absolute right-3 cursor-pointer flex items-center justify-center"
               aria-label={showPassword ? "Hide password" : "Show password"}>
-              {showPassword ? <EyeOff size={27} /> : <Eye size={27} />}
+              {showPassword ? (
+                <EyeOff size={27} className="max-sm:w-5" />
+              ) : (
+                <Eye size={27} className="max-sm:w-5" />
+              )}
             </button>
           )}
         </div>

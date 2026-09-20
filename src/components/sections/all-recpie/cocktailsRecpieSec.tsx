@@ -235,7 +235,7 @@ export default function CocktailsPage({
   };
 
   return (
-    <main className="min-h-screen bg-onyx px-10 py-20 font-megrim">
+    <main className="min-h-screen bg-onyx px-10 py-20 font-megrim max-sm:px-5">
       {/* Header */}
       <section
         className={`text-section mx-auto mb-26 max-w-7xl text-center ${
@@ -251,7 +251,7 @@ export default function CocktailsPage({
       </section>
 
       {/* Cocktail Grid */}
-      <section className="mx-auto max-w-7xl">
+      <section className="mx-auto max-w-full">
         {/* Filtering */}
         <div className={`${just_cards ? "hidden" : ""}`}>
           <Filtering
@@ -268,7 +268,7 @@ export default function CocktailsPage({
           className={`grid gap-x-6 gap-y-10 max-sm:gap-x-2 ${
             just_cards
               ? "grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1"
-              : "grid-cols-4 max-sm:grid-cols-2"
+              : "grid-cols-4 max-sm:grid-cols-1"
           }`}>
           {currentCocktails.map((cocktail, index) => (
             <div

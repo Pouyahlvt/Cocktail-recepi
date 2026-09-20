@@ -20,7 +20,7 @@ const Filter_buttons = ({ onClick, state, name }: Button) => {
       onClick={onClick}
       className={`mx-auto text-2xl mt-5 font-bold border-2 cursor-pointer py-2 px-6 rounded-full
       transition-all duration-300 ease-out hover:px-8 ${state === name ? "bg-bright-snow text-dark-amethyst" : ""}
-      max-sm:px-2 max-sm:hover:px-3 max-sm:text-sm`}>
+      max-sm:px-4 max-sm:hover:px-4 max-sm:text-sm max-sm:border-bright-snow/20 max-sm:mt-2`}>
       {name}
     </button>
   );
@@ -62,30 +62,34 @@ const Filtering = ({
       <section
         className={`bg-dark-amethyst shadow-2xl border border-bright-snow/50     
         transition-all duration-300 ease-in-out rounded-[40px] overflow-hidden relative
-        ${active ? "w-[95%] h-220 max-sm:w-full" : "w-[10%] max-sm:w-3/10 h-20  hover:w-[12%] max-sm:hover:w-35/100 "}`}>
+        ${active ? "w-[95%] h-220 max-sm:w-full" : "w-[10%] max-sm:w-2/10 h-20 max-sm:h-15  hover:w-[12%] max-sm:hover:w-2/10 "}`}>
         <button
           onClick={() => setActive(false)}
           className={`absolute w-12 h-12 right-5 top-5 rounded-full flex justify-center items-center hover:shadow-2xl 
-            shadow-bright-snow/30  active:scale-95 transition-all duration-200 ease-in-out cursor-pointer
+            shadow-bright-snow/30  active:scale-95 transition-all duration-200 ease-in-out cursor-pointer max-sm:right-3 max-sm:top-3
             ${active ? "" : "hidden"} `}>
-          <X size={30} />
+          <X size={30} className="max-sm:w-5" />
         </button>
 
         <div className="flex justify-center items-center mt-5">
           <button
             onClick={() => (active ? setActive(active) : setActive(true))}
-            className={` ${active ? "" : "w-full h-30 absolute cursor-pointer z-10 py-20"}`}>
-            <Settings2Icon color="#fafafa" size={40} className="mx-auto " />
+            className={` ${active ? "" : "w-full h-30 absolute cursor-pointer z-10 py-20 max-sm:py-12.5"}`}>
+            <Settings2Icon
+              color="#fafafa"
+              size={40}
+              className="mx-auto max-sm:w-10"
+            />
           </button>
         </div>
 
         {active && (
           <section className="w-full h-full mt-5 ">
             <section>
-              <h2 className="text-3xl mt-10  font-bold text-center max-sm:text-xl">
+              <h2 className="text-3xl mt-10  font-bold text-center max-sm:text-lg max-sm:mt-5">
                 ALCOHOL
               </h2>
-              <div className="grid grid-cols-4 justify-center ">
+              <div className="grid grid-cols-4 justify-center max-sm:grid-cols-2">
                 {alcohols.map((alc, i) => (
                   <Filter_buttons
                     key={`${alc}-filter-${i}`}
@@ -99,10 +103,10 @@ const Filtering = ({
               </div>
             </section>
             <section>
-              <h2 className="text-3xl mt-15 font-bold text-center uppercase max-sm:text-xl">
+              <h2 className="text-3xl mt-15 font-bold text-center uppercase max-sm:text-lg max-sm:mt-5">
                 Difficultty Level
               </h2>
-              <div className="grid grid-cols-3 justify-center ">
+              <div className="grid grid-cols-3 justify-center max-sm:grid-cols-1">
                 {["Easy", "Medium", "Hard"].map((diff, i) => (
                   <Filter_buttons
                     key={`${diff}-filtering-${i}`}
@@ -118,10 +122,10 @@ const Filtering = ({
               </div>
             </section>
             <section>
-              <h2 className="text-3xl mt-15 font-bold text-center uppercase max-sm:text-xl">
+              <h2 className="text-3xl mt-15 font-bold text-center uppercase max-sm:text-lg max-sm:mt-5">
                 Strong Grade [ ABV ]
               </h2>
-              <div className="grid grid-cols-3 justify-center ">
+              <div className="grid grid-cols-3 justify-center max-sm:grid-cols-1">
                 {["Very Strong", "Standard", "Light"].map((grade, i) => (
                   <Filter_buttons
                     key={`${grade}-filtering-${i}`}
@@ -135,10 +139,10 @@ const Filtering = ({
               </div>
             </section>
             <section>
-              <h2 className="text-3xl mt-15 font-bold text-center uppercase max-sm:text-xl">
+              <h2 className="text-3xl mt-15 font-bold text-center uppercase max-sm:text-lg max-sm:mt-5">
                 Sorted by
               </h2>
-              <div className="grid grid-cols-3 justify-center ">
+              <div className="grid grid-cols-3 justify-center max-sm:grid-cols-1">
                 <Filter_buttons
                   onClick={() =>
                     sort === "A to Z" ? setSort("") : setSort("A to Z")
@@ -168,7 +172,7 @@ const Filtering = ({
                 onClick={filtering_handeller}
                 className="w-[50%] h-20 rounded-full text-3xl font-black mt-10 mx-auto border-2 cursor-pointer 
               transition-all duration-300 ease-in-out hover:bg-bright-snow hover:text-dark-amethyst hover:w-[60%]
-              max-sm:w-7/10 max-sm:hover:w-8/10 max-sm:h-18 max-sm:text-2xl">
+              max-sm:w-7/10 max-sm:hover:w-8/10 max-sm:h-13 max-sm:text-lg max-sm:mt-2 ">
                 SHOW RESULTS
               </button>
             </div>

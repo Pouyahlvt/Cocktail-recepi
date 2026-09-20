@@ -84,7 +84,7 @@ const CocktailCard = ({
         </p>
 
         <div className="flex items-end justify-between gap-3">
-          <h3 className="text-2xl font-medium tracking-tight text-bright-snow">
+          <h3 className="text-2xl font-medium tracking-tight text-bright-snow max-sm:text-lg">
             {name}
           </h3>
 

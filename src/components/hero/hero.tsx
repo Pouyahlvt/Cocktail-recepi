@@ -28,19 +28,19 @@ const Hero = () => {
     <div className="hero flex h-screen w-full bg-onyx font-megrim text-bright-snow">
       <div className="mt-50 w-[60%] pl-10 z-10 max-sm:w-full max-sm:pl-5">
         <div className="w-full overflow-hidden ">
-          <p className="hero-text translate-y-full text-8xl font-bold max-sm:text-7xl">
+          <p className="hero-text translate-y-full text-8xl font-bold max-sm:text-6xl">
             Cocktails
           </p>
         </div>
 
         <div className="w-full overflow-hidden">
-          <p className="hero-text translate-y-full text-8xl font-bold max-sm:text-7xl">
+          <p className="hero-text translate-y-full text-8xl font-bold max-sm:text-6xl">
             Recpie
           </p>
         </div>
 
         <div className="w-full overflow-hidden mt-5">
-          <p className="hero-text translate-y-full text-bright-snow/50 font-bold">
+          <p className="hero-text translate-y-full text-bright-snow/50 font-bold max-sm:text-sm">
             Dscover cocktails recpie i love {"?"}
           </p>
         </div>

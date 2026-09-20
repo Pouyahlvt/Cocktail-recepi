@@ -60,7 +60,7 @@ const PopularCocktails = ({ cocktails }: Props) => {
 
   return (
     <section className="relative min-h-[115vh] overflow-hidden bg-onyx text-bright-snow font-megrim">
-      <div className="mx-auto flex min-h-[115vh] w-full max-w-[1600px] flex-col px-6 py-24 md:px-10 lg:px-16 ">
+      <div className="mx-auto flex min-h-[115vh] w-full max-w-[1600px] flex-col px-6 py-24 md:px-10 lg:px-16 max-sm:py-0 ">
         {/* Heading */}
         <div ref={headingRef} className="text-center mb-30 max-sm:mb-0">
           <h2 className=" text-4xl font-medium uppercase tracking-tight md:text-6xl lg:text-7xl">

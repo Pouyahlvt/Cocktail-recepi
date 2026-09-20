@@ -81,7 +81,7 @@ const Footer = () => {
 
       <div className="w-full h-10  absolute bottom-0 flex px-10 justify-between max-md:px-2">
         <p className="text-md max-md:text-[10px]">© POUYA HALAVAT, 2026</p>
-        <p className="text-xl max-md:text-md">
+        <p className="text-xl max-md:text-[12px] ">
           always be DRUNK <span className="ml-2">{"*_*"}</span>
         </p>
       </div>

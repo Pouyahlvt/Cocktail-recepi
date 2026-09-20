@@ -101,13 +101,14 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div ref={navbarRef} className="w-full mx-auto flex fixed top-5 h-fit z-30">
-      <div className="flex rounded-full backdrop-blur-lg px-5">
+    <div
+      ref={navbarRef}
+      className="w-full mx-auto flex fixed top-5 h-fit z-30 max-sm:top-3">
+      <div className="flex rounded-full backdrop-blur-lg px-5 max-sm:items-start max-sm:px-2">
         <Martini
           onClick={handle_martinti}
-          className="ml-5 my-auto cursor-pointer"
+          className="ml-5 my-auto cursor-pointer sm:scale-200 max-sm:ml-2 max-sm:mt-2"
           color="white"
-          size={40}
         />
 
         <h1 className="ml-5 text-4xl font-megrim font-bold text-bright-snow my-auto select-none max-sm:hidden">
@@ -129,12 +130,14 @@ const Navbar = () => {
           transition-all duration-300 ease-in-out
           group
           overflow-hidden
-          max-sm:w-32
+          max-sm:w-18
+          max-sm:h-10
+          max-sm:hover:w-18
         ">
           <button
             onClick={handle_user}
             className="
-          w-13 h-13
+          w-13 aspect-square
           backdrop-blur-lg
           rounded-full
           bg-none
@@ -143,14 +146,15 @@ const Navbar = () => {
           cursor-pointer
           transition-all duration-300 ease-in-out
           hover:bg-lnk-black hover:text-bright-snow
+          max-sm:w-7.5 max-sm:mr-1 
           
         ">
-            <UserIcon size={30} className="mx-auto" />
+            <UserIcon className="mx-auto max-sm:w-5" />
           </button>
           <button
             onClick={handleLogout}
             className="
-          w-13 h-13
+          w-13 aspect-square
           backdrop-blur-lg
           rounded-full
           -mr-15
@@ -163,8 +167,9 @@ const Navbar = () => {
           hover:bg-lnk-black hover:text-bright-snow
           max-sm:opacity-100 max-sm:scale-100
           max-sm:mr-0
+          max-sm:w-7.5
         ">
-            <LogOutIcon size={30} className="mx-auto" />
+            <LogOutIcon className="mx-auto max-sm:w-5 " />
           </button>
         </div>
       ) : (
@@ -181,8 +186,12 @@ const Navbar = () => {
           hover:w-25
           transition-all duration-300 ease-in-out
           hover:bg-bright-snow/90
+          max-sm:w-10
+          max-sm:h-10
+          max-sm:mr-2
+          max-sm:hover:w-15
         ">
-          <LogIn size={30} className="mx-auto" />
+          <LogIn className="mx-auto max-sm:w-5" />
         </button>
       )}
     </div>

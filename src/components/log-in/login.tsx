@@ -64,9 +64,9 @@ const Login = ({ switchToSignUp }: LoginProps) => {
         />
       )}
       {/* FORM */}
-      <div className="w-1/2 min-h-screen flex  justify-center px-10 max-md:w-full pt-15">
+      <div className="w-1/2 min-h-screen flex  justify-center px-10 max-md:w-full pt-15 max-sm:px-5">
         <div className="w-full flex-col flex max-w-xl pb-30">
-          <h1 className="login-h1 text-5xl font-black flex justify-center items-center mb-12 max-lg:text-5xl ">
+          <h1 className="login-h1 text-5xl font-black flex justify-center items-center mb-12 max-lg:text-5xl max-sm:text-4xl">
             Log In
             <Martini
               size={50}
@@ -106,7 +106,7 @@ const Login = ({ switchToSignUp }: LoginProps) => {
           <button
             type="button"
             onClick={switchToSignUp}
-            className="switch-button mt-2 text-lg cursor-pointer hover:scale-105 transition-transform md:hidden 
+            className="switch-button mt-2 text-sm cursor-pointer hover:scale-105 transition-transform md:hidden 
             max-md:w-full">
             Don&apos;t have an account? Sign Up
           </button>

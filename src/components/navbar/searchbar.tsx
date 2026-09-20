@@ -55,24 +55,24 @@ const Search_bar = () => {
 
   return (
     <div
-      className={`${active ? " w-full h-screen -mt-5 pt-5 max-sm:px-2 max-sm:mr-2  px-5 bg-onyx fixed  z-50  " : "w-[35%] ml-auto mr-5 hover:w-[38%] max-sm:w-fit max-sm:hover:w-fit"} 
+      className={`${active ? " w-full h-screen -mt-5 pt-5 max-sm:px-2 max-sm:mr-2  px-5 bg-onyx fixed  z-50  " : "w-[35%] ml-auto mr-5 hover:w-[38%] max-sm:w-fit max-sm:hover:w-fit max-sm:mr-2"} 
       transition-all duration-300 ease-in-out `}>
       <div className="flex">
         {active && (
           <button
-            className="h-15 w-16 mr-5 bg-bright-snow/70 rounded-full hover:bg-bright-snow/90 hover:w-20
-            transition-all duration-300 ease-in-out cursor-pointer max-sm:mr-2"
+            className="h-15 w-18 mr-2 bg-bright-snow/70 rounded-full hover:bg-bright-snow/90 hover:w-20
+            transition-all duration-300 ease-in-out cursor-pointer max-sm:mr-2 max-sm:h-10 max-sm:w-13"
             onClick={() => {
               setActive(false);
               setSearchTerm("");
               setShow(false);
             }}>
-            <MoveLeft size={30} className="mx-auto" />
+            <MoveLeft className="mx-auto w-5" />
           </button>
         )}
         <div
           className={`search-input w-full h-15 bg-bright-snow/70 backdrop-blur-lg  flex items-center transition-all duration-300 ease-in-out delay-300
-       ${active ? "hover:bg-bright-snow/90   rounded-full" : "rounded-l-full max-sm:w-0"}  `}>
+       ${active ? "hover:bg-bright-snow/90   rounded-full max-sm:h-10 " : "rounded-l-full max-sm:w-0"}  `}>
           <input
             onFocus={() => setActive(true)}
             onChange={(e) => {
@@ -82,15 +82,21 @@ const Search_bar = () => {
             value={searchTerm}
             type="text"
             placeholder="Search items "
-            className="w-full mx-7 outline-0 text-xl font-semibold font-megrim"
+            className="w-full mx-7 outline-0 text-xl font-semibold font-megrim max-sm:text-lg"
           />
         </div>
         <button
-          className={`cursor-pointer  bg-bright-snow/70 backdrop-blur-lg   transition-all duration-300 ease-in-out delay-300 
-           ${active ? "hover:bg-bright-snow/90 hover:px-5   rounded-full ml-5 px-3 max-sm:ml-2 " : "rounded-r-full  px-5 max-sm:px-2 max-sm:rounded-full"}`}
+          className={`cursor-pointer  bg-bright-snow/70 backdrop-blur-lg   transition-all duration-300 ease-in-out delay-300  
+            max-sm:w-10 max-sm:h-10
+           flex items-center
+            ${
+              active
+                ? "hover:bg-bright-snow/90 hover:px-5 max-sm:hover:px-0   rounded-full ml-5 px-3 max-sm:px-2 max-sm:ml-2 "
+                : "rounded-r-full  px-5 max-sm:px-2 max-sm:rounded-full "
+            }`}
           onClick={search_handeller}>
           {" "}
-          {<SearchIcon size={40} />}
+          {<SearchIcon className="mx-auto max-sm:w-7" />}
         </button>
       </div>
       {active && (
@@ -110,7 +116,7 @@ const Search_bar = () => {
               onClick={() => handleCardClick(cocktails.name)}
               className={`search-result flex shrink text-3xl ml-10 text-bright-snow  font-megrim border-b-2 cursor-pointer 
                opacity-60 -translate-y-10 justify-between group ${searchTerm.length === 0 ? "hidden" : ""} 
-               max-sm:text-xl max-sm:ml-2`}>
+               max-sm:text-sm max-sm:ml-2`}>
               <span className="w-full group-hover:translate-x-5 transition-all duration-200 ease-in-out p-4 ">
                 {cocktails.name}
               </span>

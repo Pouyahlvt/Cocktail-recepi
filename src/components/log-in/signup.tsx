@@ -69,7 +69,9 @@ const SignUp = ({ switchToLogin }: SignUpProps) => {
   };
 
   return (
-    <div className="w-full h-screen bg-linear-to-b from-dark-amethyst to-onyx text-bright-snow font-megrim flex">
+    <div
+      className="w-full h-screen bg-linear-to-b from-dark-amethyst to-onyx text-bright-snow 
+    font-megrim flex">
       {show && (
         <Alert
           text={alerts.text}
@@ -78,7 +80,7 @@ const SignUp = ({ switchToLogin }: SignUpProps) => {
         />
       )}
       {/* IMAGE */}
-      <div className="signup-image-section w-1/2 min-h-screen flex flex-col items-center justify-center p-10 order-1 max-md:hidden">
+      <div className="signup-image-section w-1/2 min-h-screen flex flex-col items-center justify-center p-10 order-1 max-md:hidden max-sm:p-5">
         <Image
           width={500}
           height={500}
@@ -96,21 +98,25 @@ const SignUp = ({ switchToLogin }: SignUpProps) => {
       </div>
 
       {/* FORM */}
-      <div className="signup-form w-1/2 h-screen flex mt-15 justify-center px-10 order-2 max-md:w-full">
-        <div className="w-full max-w-xl flex flex-col pb-50">
-          <h1 className="signup-h1 text-5xl font-black flex justify-center items-center mb-12 max-lg:text-4xl">
+      <div
+        className="signup-form w-1/2 h-screen flex mt-15 justify-center px-10 order-2 max-md:w-full
+      max-sm:px-5">
+        <div className="w-full  flex flex-col pb-50">
+          <h1
+            className="signup-h1 text-5xl font-black flex justify-center items-center mb-12 
+          max-lg:text-4xl max-sm:text-3xl">
             Sign Up
             <Martini
               size={50}
               className={`ml-5 ${
                 cheers ? "rotate-15" : ""
-              } transition-all duration-500`}
+              } transition-all duration-500 max-sm:w-7 max-sm:ml-2`}
             />
             <LucideWine
               size={50}
               className={`${
                 cheers ? "-ml-2 -rotate-30" : "ml-4"
-              } transition-all duration-500`}
+              } transition-all duration-500 max-sm:w-7`}
             />
           </h1>
 
@@ -147,7 +153,8 @@ const SignUp = ({ switchToLogin }: SignUpProps) => {
           <button
             type="button"
             onClick={switchToLogin}
-            className="switch-button mt-2 text-lg cursor-pointer hover:scale-105 transition-transform max-md:w-full">
+            className="switch-button mt-2 text-lg cursor-pointer hover:scale-105 transition-transform 
+            max-md:w-full max-sm:text-sm">
             Already have an account? Log In
           </button>
         </div>

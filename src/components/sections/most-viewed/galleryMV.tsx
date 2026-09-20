@@ -135,7 +135,7 @@ const CocktailGalleryMV = ({ cocktails }: Props) => {
 
       if (position === 0) {
         // CENTER
-        width = "50%";
+        width = "70%";
         x = 0;
         scale = 1;
         opacity = 1;
@@ -315,7 +315,7 @@ const CocktailGalleryMV = ({ cocktails }: Props) => {
           onClick={previous}
           className="flex h-15 w-15 shrink-0 items-center justify-center rounded-full text-2xl
            text-bright-snow hover:w-20 cursor-pointer active:scale-95 transition-all duration-200
-           bg-dark-amethyst border border-bright-snow/30 "
+           bg-dark-amethyst border border-bright-snow/30 max-sm:w-10 max-sm:h-10 max-sm:hover:w-10 max-sm:text-xl"
           aria-label="Previes cocktail ">
           {"◁"}
         </button>
@@ -325,7 +325,7 @@ const CocktailGalleryMV = ({ cocktails }: Props) => {
           onClick={next}
           className="flex h-15 w-15 shrink-0 items-center justify-center rounded-full text-2xl 
            text-bright-snow hover:w-20  cursor-pointer active:scale-95 transition-all duration-200
-           bg-dark-amethyst border border-bright-snow/30 "
+           bg-dark-amethyst border border-bright-snow/30 max-sm:w-10 max-sm:h-10 max-sm:hover:w-10 max-sm:text-xl "
           aria-label="Next cocktail ">
           {"▷"}
         </button>

@@ -69,7 +69,7 @@ const Most_viewed = ({ cocktails }: Props) => {
 
   return (
     <div className="w-full min-h-screen bg-onyx font-megrim pt-20">
-      <div className="sm:flex mb-30 mx-10 justify-between pt-10 max-sm:mb-10">
+      <div className="sm:flex mb-30 mx-10 justify-between pt-10 max-sm:mb-0 max-sm:pt-0">
         <h1
           ref={headOneRef}
           className="text-6xl text-bright-snow max-sm:text-3xl ">
